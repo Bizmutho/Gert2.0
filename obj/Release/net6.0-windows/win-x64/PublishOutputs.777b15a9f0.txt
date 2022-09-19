@@ -1,0 +1,7 @@
+C:\Users\siste\OneDrive\Escritorio\Mio\Modulos.pdb
+C:\Users\siste\OneDrive\Escritorio\Mio\D3DCompiler_47_cor3.dll
+C:\Users\siste\OneDrive\Escritorio\Mio\PenImc_cor3.dll
+C:\Users\siste\OneDrive\Escritorio\Mio\PresentationNative_cor3.dll
+C:\Users\siste\OneDrive\Escritorio\Mio\vcruntime140_cor3.dll
+C:\Users\siste\OneDrive\Escritorio\Mio\wpfgfx_cor3.dll
+C:\Users\siste\OneDrive\Escritorio\Mio\Modulos.exe

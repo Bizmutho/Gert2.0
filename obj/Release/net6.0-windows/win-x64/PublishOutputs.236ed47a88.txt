@@ -1,0 +1,7 @@
+C:\Users\siste\OneDrive\Escritorio\Modulos Credito\Modulos.pdb
+C:\Users\siste\OneDrive\Escritorio\Modulos Credito\D3DCompiler_47_cor3.dll
+C:\Users\siste\OneDrive\Escritorio\Modulos Credito\PenImc_cor3.dll
+C:\Users\siste\OneDrive\Escritorio\Modulos Credito\PresentationNative_cor3.dll
+C:\Users\siste\OneDrive\Escritorio\Modulos Credito\vcruntime140_cor3.dll
+C:\Users\siste\OneDrive\Escritorio\Modulos Credito\wpfgfx_cor3.dll
+C:\Users\siste\OneDrive\Escritorio\Modulos Credito\Modulos.exe

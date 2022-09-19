@@ -1,0 +1,17 @@
+C:\Users\promo\Desktop\office\Moratorios.exe
+C:\Users\promo\Desktop\office\Moratorios.dll
+C:\Users\promo\Desktop\office\Moratorios.deps.json
+C:\Users\promo\Desktop\office\Moratorios.runtimeconfig.json
+C:\Users\promo\Desktop\office\Moratorios.pdb
+C:\Users\promo\Desktop\office\BouncyCastle.Crypto.dll
+C:\Users\promo\Desktop\office\ClosedXML.dll
+C:\Users\promo\Desktop\office\DocumentFormat.OpenXml.dll
+C:\Users\promo\Desktop\office\ExcelNumberFormat.dll
+C:\Users\promo\Desktop\office\Google.Protobuf.dll
+C:\Users\promo\Desktop\office\itextsharp.dll
+C:\Users\promo\Desktop\office\K4os.Compression.LZ4.dll
+C:\Users\promo\Desktop\office\K4os.Compression.LZ4.Streams.dll
+C:\Users\promo\Desktop\office\K4os.Hash.xxHash.dll
+C:\Users\promo\Desktop\office\MySql.Data.dll
+C:\Users\promo\Desktop\office\Ubiety.Dns.Core.dll
+C:\Users\promo\Desktop\office\ZstdNet.dll
