@@ -139,5 +139,11 @@ namespace Moratorios
             SociosCarteras sc = new SociosCarteras();
             sc.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Modulos.Estatus_Juridico ej= new Modulos.Estatus_Juridico();
+            ej.Show();
+        }
     }
 }

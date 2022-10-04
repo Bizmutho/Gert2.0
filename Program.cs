@@ -13,7 +13,7 @@ namespace Modulos
         {
             ApplicationConfiguration.Initialize();
             var ini = new Login();
-            ini.Show();
+           ini.Show();
 
            //var ini = new ActualizarOficial();
            //ini.Show();
