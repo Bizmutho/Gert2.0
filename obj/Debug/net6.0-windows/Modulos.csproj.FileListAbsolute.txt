@@ -165,7 +165,6 @@ C:\Users\sams\Desktop\Gert\obj\Debug\net6.0-windows\Modulos.genruntimeconfig.cac
 <<<<<<< Updated upstream
 C:\Users\sams\Desktop\Gert\obj\Debug\net6.0-windows\Modulos.Estatus_Juridico.resources
 =======
-=======
 >>>>>>> develop
 C:\Users\siste\Source\Repos\gert\bin\Debug\net6.0-windows\Modulos.exe
 C:\Users\siste\Source\Repos\gert\bin\Debug\net6.0-windows\Modulos.deps.json
@@ -225,10 +224,8 @@ C:\Users\siste\Source\Repos\gert\obj\Debug\net6.0-windows\ref\Modulos.dll
 C:\Users\siste\Source\Repos\gert\obj\Debug\net6.0-windows\Interop.Microsoft.Office.Interop.Excel.dll
 C:\Users\siste\Source\Repos\gert\obj\Debug\net6.0-windows\Modulos.csproj.ResolveComReference.cache
 C:\Users\siste\Source\Repos\gert\obj\Debug\net6.0-windows\Modulos.ProcesoJuridico.resources
-<<<<<<< HEAD
 C:\Users\sams\Desktop\Gert\obj\Debug\net6.0-windows\Interop.Microsoft.Office.Interop.Excel.dll
 C:\Users\sams\Desktop\Gert\obj\Debug\net6.0-windows\Modulos.csproj.ResolveComReference.cache
 C:\Users\sams\Desktop\Gert\obj\Debug\net6.0-windows\Modulos.ProcesoJuridico.resources
 >>>>>>> Stashed changes
-=======
->>>>>>> develop
+C:\Users\siste\source\repos\gert\obj\Debug\net6.0-windows\Modulos.Estatus_Juridico.resources
