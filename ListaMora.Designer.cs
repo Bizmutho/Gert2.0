@@ -77,6 +77,7 @@
             this.cbOficiales.Name = "cbOficiales";
             this.cbOficiales.Size = new System.Drawing.Size(121, 27);
             this.cbOficiales.TabIndex = 1;
+            this.cbOficiales.SelectedIndexChanged += new System.EventHandler(this.cbOficiales_SelectedIndexChanged);
             // 
             // btnAtras
             // 
@@ -100,6 +101,7 @@
             this.dgvListaMora.RowTemplate.Height = 25;
             this.dgvListaMora.Size = new System.Drawing.Size(776, 360);
             this.dgvListaMora.TabIndex = 3;
+            this.dgvListaMora.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaMora_CellContentClick);
             this.dgvListaMora.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvListaMora_CellPainting);
             // 
             // label1
