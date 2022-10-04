@@ -82,5 +82,35 @@ namespace Modulos
                 }
             }
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void cbRecordar_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txbUsuario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txbContra_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
