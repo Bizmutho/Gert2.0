@@ -238,5 +238,15 @@ namespace Moratorios
             Application.ExitThread();
             Application.Exit();
         }
+
+        private void cbOficiales_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvListaMora_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
