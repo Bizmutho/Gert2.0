@@ -43,6 +43,7 @@
             this.btnCirculoCredito = new System.Windows.Forms.Button();
             this.btnMoratorios = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnInversion
@@ -205,11 +206,23 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button2.Location = new System.Drawing.Point(235, 419);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(217, 52);
+            this.button2.TabIndex = 21;
+            this.button2.Text = "Juridico";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 478);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnMoratorios);
             this.Controls.Add(this.btnMorosidadCarteras);
@@ -248,5 +261,6 @@
         private Button btnCirculoCredito;
         private Button btnMoratorios;
         private Button button1;
+        private Button button2;
     }
 }
