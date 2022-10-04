@@ -28,7 +28,11 @@
     <Compile Update="dialogCarga.cs">
       <SubType>Form</SubType>
     </Compile>
+<<<<<<< HEAD
     <Compile Update="Estatus_Juridico.cs">
+=======
+    <Compile Update="ProcesoJuridico.cs">
+>>>>>>> develop
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Inicio.cs">
