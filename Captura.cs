@@ -937,6 +937,11 @@ namespace Modulos
         {
 
         }
+
+        private void Captura_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

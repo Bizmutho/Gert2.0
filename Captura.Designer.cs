@@ -534,6 +534,7 @@
             this.Name = "Captura";
             this.Text = "Captura";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Captura_FormClosing);
+            this.Load += new System.EventHandler(this.Captura_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.adgvDepositos)).EndInit();
             this.groupBox2.ResumeLayout(false);

@@ -1,4 +1,6 @@
-﻿using Modulos.Clases;
+﻿using ClosedXML;
+using Modulos;
+using Modulos.Clases;
 using Modulos.Modelos;
 using System;
 using System.Collections.Generic;
@@ -15,11 +17,17 @@ namespace Moratorios
 {
     public partial class Inicio : Form
     {
+        
+
         public Inicio()
         {
             InitializeComponent();
+            
+            
 
             StartPosition = FormStartPosition.CenterScreen;
+
+            
 
         }
 
@@ -144,6 +152,32 @@ namespace Moratorios
         {
             Modulos.Estatus_Juridico ej= new Modulos.Estatus_Juridico();
             ej.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Modulos.Prestamos pr = new Modulos.Prestamos();
+            pr.Show();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Inicio_Load(object sender, EventArgs e)
+        {
+
+
+            
+            
+            
+        }
+
+        private void pictureBox2_MouseHover(object sender, EventArgs e)
+        {
+            System.Windows.Forms.ToolTip ToolTip1 = new System.Windows.Forms.ToolTip();
+            ToolTip1.SetToolTip(this.pictureCerrarSesion, "CERRAR SESION");
         }
     }
 }

@@ -43,6 +43,15 @@
     <Compile Update="Login.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Prestamos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Prestamos_Agregar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Prestamos_Editar.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ProcesoJuridico.cs">
       <SubType>Form</SubType>
     </Compile>

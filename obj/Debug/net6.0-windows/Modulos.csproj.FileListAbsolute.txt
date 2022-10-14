@@ -229,3 +229,6 @@ C:\Users\sams\Desktop\Gert\obj\Debug\net6.0-windows\Modulos.csproj.ResolveComRef
 C:\Users\sams\Desktop\Gert\obj\Debug\net6.0-windows\Modulos.ProcesoJuridico.resources
 >>>>>>> Stashed changes
 C:\Users\siste\source\repos\gert\obj\Debug\net6.0-windows\Modulos.Estatus_Juridico.resources
+C:\Users\siste\source\repos\gert\obj\Debug\net6.0-windows\Modulos.Prestamos.resources
+C:\Users\siste\source\repos\gert\obj\Debug\net6.0-windows\Modulos.Prestamos_Agregar.resources
+C:\Users\siste\source\repos\gert\obj\Debug\net6.0-windows\Modulos.Prestamos_Editar.resources
