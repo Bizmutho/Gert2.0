@@ -1,4 +1,5 @@
 ﻿using Microsoft.Office.Interop.Excel;
+using Modulos.Clases;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -57,37 +58,34 @@ namespace Modulos
 
         private void cancelarJuridico_Click(object sender, EventArgs e)
         {
-            fechaOficio.Text = "";
-            totalDemanda.Text = "";
-            listAbogado.Text = "";
-            listStatus.Text = "";
+            
         }
 
         private void cancelarJuridico_MouseHover(object sender, EventArgs e)
         {
-            cancelarJuridico.Size = new System.Drawing.Size(92, 92);
+            //cancelarJuridico.Size = new System.Drawing.Size(92, 92);
 
-            System.Windows.Forms.ToolTip ToolTip1 = new System.Windows.Forms.ToolTip();
-            ToolTip1.SetToolTip(this.cancelarJuridico, "CANCELAR");
+            //System.Windows.Forms.ToolTip ToolTip1 = new System.Windows.Forms.ToolTip();
+            //ToolTip1.SetToolTip(this.cancelarJuridico, "CANCELAR");
 
         }
 
         private void cancelarJuridico_MouseLeave(object sender, EventArgs e)
         {
-            cancelarJuridico.Size = new System.Drawing.Size(82, 82);
+            //cancelarJuridico.Size = new System.Drawing.Size(82, 82);
         }
 
         private void guardarJuridico_MouseHover(object sender, EventArgs e)
         {
-            guardarJuridico.Size = new System.Drawing.Size(92, 92);
+            //guardarJuridico.Size = new System.Drawing.Size(92, 92);
 
-            System.Windows.Forms.ToolTip ToolTip1 = new System.Windows.Forms.ToolTip();
-            ToolTip1.SetToolTip(this.guardarJuridico, "GUARDAR");
+            //System.Windows.Forms.ToolTip ToolTip1 = new System.Windows.Forms.ToolTip();
+            //ToolTip1.SetToolTip(this.guardarJuridico, "GUARDAR");
         }
 
         private void guardarJuridico_MouseLeave(object sender, EventArgs e)
         {
-            guardarJuridico.Size = new System.Drawing.Size(82, 82);
+            //guardarJuridico.Size = new System.Drawing.Size(82, 82);
         }
 
         private void salir_MouseHover(object sender, EventArgs e)
@@ -108,31 +106,40 @@ namespace Modulos
 
         private void guardarJuridico_Click(object sender, EventArgs e)
         {
-            Con.crearConexion();
-            Con.OpenConnection();
-           
-            string query = ("INSERT INTO emprendedor.estatus_juridico(IdPrestamo, FechaOficio, TotalDemanda, Abogado, Estatus) VALUES" +
-                "('"+NoContrato.Text+"', '"+fechaOficio.Text+"', '"+totalDemanda.Text+"', '"+listAbogado.SelectedValue+"', '"+listStatus.Text+"');");
-            MySqlCommand cmd = new MySqlCommand(query, Con.GetConnection());
-           
-            cmd.ExecuteNonQuery();
-
-            
-            MessageBox.Show("REGISTRO EXITOSO");
-
-      
-            NoContrato.Text = "";
-            fechaOficio.Text = "";
-            totalDemanda.Text = "";
-            listAbogado.Text = "";
-            listStatus.Text = "";
-
+         
 
         }
 
         private void listAbogado_SelectionChangeCommitted(object sender, EventArgs e)
         {
             
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Con.crearConexion();
+            Con.OpenConnection();
+
+            string query = ("INSERT INTO estatus_juridico(IdPrestamo, FechaOficio, TotalDemanda, Abogado, Estatus) VALUES" +
+                "('" + NoContrato.Text + "', '" + fechaOficio.Text + "', '" + totalDemanda.Text + "', '" + listAbogado.SelectedValue + "', '" + listStatus.Text + "');");
+            MySqlCommand cmd = new MySqlCommand(query, Con.GetConnection());
+
+            cmd.ExecuteNonQuery();
+
+
+            MessageBox.Show("REGISTRO EXITOSO");
+
+
+            NoContrato.Text = "";
+            fechaOficio.Text = "";
+            totalDemanda.Text = "";
+            listAbogado.Text = "";
+            listStatus.Text = "";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

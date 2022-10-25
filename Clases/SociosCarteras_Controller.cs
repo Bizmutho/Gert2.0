@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Modulos
+namespace Modulos.Clases
 {
     public class SociosCarteras_controller
     {
@@ -14,14 +14,16 @@ namespace Modulos
         public int[] idOficial = {29, 30, 32, 87, 108, 110, 112, 144, 145, 146, 147, 148, 150, 151, 152, 155, 157, 160, 161, 163, 164, 165, 166,
            167, 168, 169, 170, 171, 172, 173,174,175,176,177,178,179,180,181,182,183,184,185,186,187, 188};
 
-        
 
-        public SociosCarteras_controller() {
+
+        public SociosCarteras_controller()
+        {
             Con = new Conexion();
         }
 
 
-        public void ConsultaTabla(DataGridView tb, int cb) {
+        public void ConsultaTabla(DataGridView tb, int cb)
+        {
 
 
 
@@ -33,7 +35,7 @@ namespace Modulos
             MySqlCommand query = new MySqlCommand(query1, Con.GetConnection());
             DataTable dt2 = new DataTable();
             MySqlDataAdapter da2 = new MySqlDataAdapter();
-            da2.SelectCommand = (query);
+            da2.SelectCommand = query;
             dt2.Clear();
             da2.Fill(dt2);
             tb.DataSource = dt2;
@@ -81,29 +83,30 @@ namespace Modulos
             exp.Visible = true;
         }
 
-        public void comboAbogado(ComboBox cbAbogados){
+        public void comboAbogado(ComboBox cbAbogados)
+        {
 
             Con.crearConexion();
             Con.OpenConnection();
-            string query = ("SELECT Id, Concat(Nombre, ' ', Paterno, ' ', Materno) as Nombre FROM abogados;");
-            
+            string query = "SELECT Id, Concat(Nombre, ' ', Paterno, ' ', Materno) as Nombre FROM abogados;";
+
             DataTable dtAbogado = new DataTable();
             MySqlCommand cmd = new MySqlCommand(query, Con.GetConnection());
             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
             da.Fill(dtAbogado);
-            
+
             cbAbogados.ValueMember = "Id";
             cbAbogados.DisplayMember = "Nombre";
             cbAbogados.DataSource = dtAbogado;
             cbAbogados.Text = "Seleccione un Abogado";
 
-            
+
 
             //cbAbogados.SelectedIndex = 0;
 
 
         }
 
-        
+
     }
 }

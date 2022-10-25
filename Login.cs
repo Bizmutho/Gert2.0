@@ -43,11 +43,14 @@ namespace Modulos
                 Properties.Settings.Default.Save();
                 Inicio ini = new Inicio();
                 ini.Show();
+                 
                 this.Dispose();
             } else if (log == 2)
             {
                 Console.WriteLine("Usuario incorrecto");
             }
+            
+            
         }
 
         private void textBox1_KeyUp(object sender, KeyEventArgs e)
@@ -74,6 +77,7 @@ namespace Modulos
                     Properties.Settings.Default.Save();
                     Inicio ini = new Inicio();
                     ini.Show();
+                    
                     this.Dispose();
                 }
                 else if (log == 2)

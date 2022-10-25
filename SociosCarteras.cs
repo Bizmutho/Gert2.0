@@ -8,8 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Modulos;
 using DocumentFormat.OpenXml.Office2013.Excel;
+using Modulos.Clases;
 
 namespace Modulos.Modelos
 {

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SmVKl0m/75JQem/eVZUIaKWYD7i65cxnDCWGE3dKWlHvzm2gvIJlSZ0QzfbnpGLy3GhfYNohzl1O8f7MgN7JQw==",
+  "dgSpecHash": "P+ih1bFp8U5kugLAzNTzVz2nZ9ZBoW5dNxNjP6BGviDK+a/bnhzXMv4Mp7+M1L6vMPcPKXuxDqsjQ2SWGei+gw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\siste\\Source\\Repos\\gert\\Modulos.csproj",
+  "projectFilePath": "C:\\Users\\siste\\source\\repos\\gert\\Modulos.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\siste\\.nuget\\packages\\adgv\\0.1.0.10\\adgv.0.1.0.10.nupkg.sha512",
     "C:\\Users\\siste\\.nuget\\packages\\bouncycastle\\1.8.6.1\\bouncycastle.1.8.6.1.nupkg.sha512",

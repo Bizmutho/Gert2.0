@@ -11,6 +11,9 @@ namespace Modulos.Clases
     {
         Conexion con;
 
+       
+
+
         public Login_Controller()
         {
             con = new Conexion();

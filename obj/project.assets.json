@@ -5997,11 +5997,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\siste\\Source\\Repos\\gert\\Modulos.csproj",
+      "projectUniqueName": "C:\\Users\\siste\\source\\repos\\gert\\Modulos.csproj",
       "projectName": "Modulos",
-      "projectPath": "C:\\Users\\siste\\Source\\Repos\\gert\\Modulos.csproj",
+      "projectPath": "C:\\Users\\siste\\source\\repos\\gert\\Modulos.csproj",
       "packagesPath": "C:\\Users\\siste\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\siste\\Source\\Repos\\gert\\obj\\",
+      "outputPath": "C:\\Users\\siste\\source\\repos\\gert\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\siste\\AppData\\Roaming\\NuGet\\NuGet.Config",
