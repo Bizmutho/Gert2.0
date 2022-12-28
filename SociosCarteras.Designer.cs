@@ -90,7 +90,9 @@
             "OFICINA VICTORIA MORA",
             "OFICINA VICTORIA REGULARES",
             "CINTHIA MORA (BRANDON)",
-            "CINTHIA MORA (JESUS)"});
+            "CINTHIA MORA (JESUS)",
+            "YARITHZA ",
+            "YARITHZA REGULARES"});
             this.listaOficial.Location = new System.Drawing.Point(93, 39);
             this.listaOficial.Name = "listaOficial";
             this.listaOficial.Size = new System.Drawing.Size(258, 23);

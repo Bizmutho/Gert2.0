@@ -22,6 +22,7 @@ namespace Modulos.Clases
             float pago, pagado, pendiente, vencido = 0;
             float Tpago = 0, Tpagado = 0, Tpendiente = 0, Tvencido = 0, Tmoratorio = 0, Total;
             int np = 1, qncPen = 0;
+            float intereses = 0, tasa = 0, intDia = 0, tintDia = 0;
 
             DataTable dtm = new DataTable();
             dtm.Columns.Add("Fecha");
@@ -30,31 +31,11 @@ namespace Modulos.Clases
             dtm.Columns.Add("Pagado");
             dtm.Columns.Add("Pendiente");
             dtm.Columns.Add("Vencido");
+            dtm.Columns.Add("Moratorios");
 
-            DateTime qncAct = DateTime.Now;
-
-            if (qncAct.Day < 15)
-            {
-                if (qncAct.Day < 12)
-                {
-                    qncAct = new DateTime((qncAct.Month == 1) ? qncAct.Year - 1 : qncAct.Year, (qncAct.Month == 1) ? 12 : (qncAct.Month - 1), DateTime.DaysInMonth((qncAct.Month == 1) ? qncAct.Year - 1 : qncAct.Year, (qncAct.Month == 1) ? 12 : (qncAct.Month - 1)));
-                }
-                else
-                {
-                    qncAct = new DateTime(qncAct.Year, qncAct.Month, 15);
-                }
-            }
-            else
-            {
-                if (qncAct.Day >= 27)
-                {
-                    qncAct = new DateTime(qncAct.Year, qncAct.Month, DateTime.DaysInMonth(qncAct.Year, qncAct.Month));
-                }
-                else
-                {
-                    qncAct = new DateTime(qncAct.Year, qncAct.Month, 15);
-                }
-            }
+            DateTime qnAux = DateTime.Now;
+            DateTime qncAct = qnAux.AddDays(92) ;
+            //DateTime qncAct = qnAux;
 
             try
             {
@@ -73,11 +54,25 @@ namespace Modulos.Clases
                         qnc = resultados.GetDateTime(0);
                         pago = resultados.GetFloat(1);
                         pagado = resultados["Pagado"] != DBNull.Value ? resultados.GetFloat(2) : 0;
+                        intereses = resultados.GetFloat(3);
+                        tasa = resultados.GetFloat(4);
                         pendiente = pago - pagado;
                         if (pendiente != 0 && qnc <= qncAct)
                         {
                             vencido = pendiente;
                             Tvencido += pendiente;
+                            TimeSpan ts = qncAct - qnc;
+                            int dias = ts.Days;
+                            float tasaDia = ((tasa * 2) / 30) / 100;
+                            if (vencido >= intereses)
+                            {
+                                intDia = intereses * dias * tasaDia;
+                            } else if (vencido < intereses && pendiente > 0)
+                            {
+                                intDia =vencido * tasaDia * dias;
+                            } 
+                            
+
                             if (pendiente >= pago * .10 && qncVen == new DateTime(1, 1, 1))
                             {
                                 qncVen = qnc;
@@ -87,13 +82,17 @@ namespace Modulos.Clases
                         {
                             vencido = 0;
                         }
-                        dtm.Rows.Add(qnc.ToShortDateString(), np, Math.Round(pago, 2), Math.Round(pagado, 2), Math.Round(pendiente, 2), Math.Round(vencido, 2));
+
+                        dtm.Rows.Add(qnc.ToShortDateString(), np, Math.Round(pago, 2), Math.Round(pagado, 2), Math.Round(pendiente, 2), Math.Round(vencido, 2), Math.Round(intDia, 2));
+                        tintDia += intDia;
                         Tpago += pago;
                         Tpagado += pagado;
                         Tpendiente += pendiente;
                         np += 1;
+                        intDia = 0;
                     }
-                    dtm.Rows.Add("", "Total", Math.Round(Tpago, 2), Math.Round(Tpagado, 2), Math.Round(Tpendiente, 2) > 0 ? Math.Round(Tpendiente, 2) : 0, Math.Round(Tvencido, 2) > 0 ? Math.Round(Tvencido, 2) : 0);
+                    float moraIVA = (float)(tintDia * .16);
+                    dtm.Rows.Add("", "Total", Math.Round(Tpago, 2), Math.Round(Tpagado, 2), Math.Round(Tpendiente, 2) > 0 ? Math.Round(Tpendiente, 2) : 0, Math.Round(Tvencido, 2) > 0 ? Math.Round(Tvencido, 2) : 0, Math.Round(tintDia, 2));
                 }
                 else
                 {
@@ -159,11 +158,11 @@ namespace Modulos.Clases
             if (qncPen > 0)
             {
                 Tmoratorio = Tvencido * (porcentaje / 100);
-                dtr.Rows.Add("Moratorios (" + porcentaje + "%)", Math.Round(Tmoratorio, 2) > 0 ? Math.Round(Tmoratorio, 2) : 0);
+                dtr.Rows.Add("Moratorios", Math.Round(tintDia, 2) > 0 ? Math.Round(tintDia+(tintDia* .16), 2) : 0);
 
             }
 
-            Total = Tvencido + Tmoratorio;
+            Total = Tvencido + tintDia;
             dtr.Rows.Add("Total", Math.Round(Total, 2) > 0 ? Math.Round(Total, 2) : 0);
 
             dvm.DataSource = dtm;
@@ -224,8 +223,9 @@ namespace Modulos.Clases
             string ReporteInversion = "";
 
             ReporteInversion =
-                "select deudaindividual.FechaPago, TotalPago, sum(ri.Monto) as Pagado from deudaindividual " +
+                "select deudaindividual.FechaPago, TotalPago, sum(ri.Monto) as Pagado, deudaindividual.Intereses, prestamosind.Tasa from deudaindividual " +
                 "left join reciboind ri on deudaindividual.Id = ri.PagoNo and ri.Activo = 1 " +
+                "inner join prestamosind on deudaindividual.PrestamoId = prestamosind.Id "+
                 "where deudaindividual.PrestamoId = " + credito + " " +
                 "group by PagoId";
 

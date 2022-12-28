@@ -138,7 +138,7 @@ namespace Moratorios
 
         private void btnMoratorios_Click(object sender, EventArgs e)
         {
-            Modulos.Moratorios moratorios = new Modulos.Moratorios();
+            MoratoriosNo moratorios = new MoratoriosNo();
             moratorios.Show();
         }
 

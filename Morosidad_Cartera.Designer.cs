@@ -119,7 +119,7 @@
             this.adgvMorosos.Name = "adgvMorosos";
             this.adgvMorosos.ReadOnly = true;
             this.adgvMorosos.RowTemplate.Height = 25;
-            this.adgvMorosos.Size = new System.Drawing.Size(776, 395);
+            this.adgvMorosos.Size = new System.Drawing.Size(950, 395);
             this.adgvMorosos.TabIndex = 3;
             this.adgvMorosos.TimeFilter = false;
             // 
@@ -138,7 +138,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(974, 450);
             this.Controls.Add(this.btnExportar);
             this.Controls.Add(this.adgvMorosos);
             this.Controls.Add(this.btnBuscar);

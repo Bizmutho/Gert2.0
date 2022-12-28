@@ -49,5 +49,10 @@ namespace Moratorios
         {
 
         }
+
+        private void cbOficiales_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

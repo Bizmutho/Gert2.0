@@ -11,7 +11,7 @@ namespace Modulos
     {
         private MySqlConnection connection;
         private string server = "serveri";
-        private string database = "emprendedor_pruebas2";
+        private string database = "emprendedor";
         private string uid = "SICartera";
         private string password = "cartera1";
 

@@ -72,11 +72,13 @@
             "GOMEZ FARIAS MORA",
             "VICTORIA GERT",
             "VICTORIA REGULARES",
-            "VICTORIA MORA"});
+            "VICTORIA MORA",
+            "YARITHZA"});
             this.cbOficiales.Location = new System.Drawing.Point(98, 12);
             this.cbOficiales.Name = "cbOficiales";
             this.cbOficiales.Size = new System.Drawing.Size(121, 27);
             this.cbOficiales.TabIndex = 0;
+            this.cbOficiales.SelectedIndexChanged += new System.EventHandler(this.cbOficiales_SelectedIndexChanged);
             // 
             // label1
             // 
