@@ -10,6 +10,7 @@ namespace Modulos.Modelos
     {
         public DateTime diaDeposito { get; set; }
         public int idPrestamo { get; set; }
+        public int idDeposito { get; set; }
         public String codigoBanco { get; set; }
         public String movimiento { get; set; }
         public Double cargo { get; set; } = 0;

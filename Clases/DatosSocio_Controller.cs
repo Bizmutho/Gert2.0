@@ -51,7 +51,7 @@ namespace Modulos.Clases
             try
             {
                 String query = "select " +
-                    "CONCAT(prestamosind.Nombre, ' ', prestamosind.Paterno, ' ', prestamosind.Materno) as Socio, " +
+                    "CONCAT(prestamosind.Nombre, ' ', prestamosind.Materno, ' ', prestamosind.Paterno) as Socio, " +
                     "socios.Telefono as TelefonoSocio, " +
                     "socios.Direccion as DireccionSocio, " +
                     "socios.Colonia as ColoniaSocio, " +

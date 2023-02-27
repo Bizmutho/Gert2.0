@@ -43,6 +43,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.buttonGuardar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtObsBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.salir)).BeginInit();
             this.SuspendLayout();
             // 
@@ -163,13 +165,16 @@
             this.listStatus.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listStatus.FormattingEnabled = true;
             this.listStatus.Items.AddRange(new object[] {
-            "PARA NOTIFICAR",
+            "EMPLAZAMIENTO",
             "PARA CATEO",
-            "ESTA ABONANDO",
-            "NO SE ECONTRÓ",
-            "EN ESPERA",
-            "CONVENIO"});
-            this.listStatus.Location = new System.Drawing.Point(177, 246);
+            "CONVENIO",
+            "CAMBIO DE DOMICILIO",
+            "NO SE ENCONTRÓ",
+            "SENTENCIA",
+            "DEMANDA EN PROCESO",
+            "LIQUIDADA",
+            "EXTRAJUDICIAL"});
+            this.listStatus.Location = new System.Drawing.Point(177, 249);
             this.listStatus.Name = "listStatus";
             this.listStatus.Size = new System.Drawing.Size(200, 25);
             this.listStatus.TabIndex = 20;
@@ -180,11 +185,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(114, 250);
+            this.label1.Location = new System.Drawing.Point(109, 250);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 20);
+            this.label1.Size = new System.Drawing.Size(58, 20);
             this.label1.TabIndex = 19;
-            this.label1.Text = "Status:";
+            this.label1.Text = "Estatus:";
             // 
             // buttonGuardar
             // 
@@ -196,7 +201,7 @@
             this.buttonGuardar.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonGuardar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonGuardar.Location = new System.Drawing.Point(77, 334);
+            this.buttonGuardar.Location = new System.Drawing.Point(77, 354);
             this.buttonGuardar.Name = "buttonGuardar";
             this.buttonGuardar.Size = new System.Drawing.Size(135, 43);
             this.buttonGuardar.TabIndex = 34;
@@ -215,7 +220,7 @@
             this.button1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.Location = new System.Drawing.Point(265, 334);
+            this.button1.Location = new System.Drawing.Point(265, 355);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(135, 43);
             this.button1.TabIndex = 33;
@@ -224,12 +229,34 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label2.Location = new System.Drawing.Point(59, 295);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(108, 20);
+            this.label2.TabIndex = 35;
+            this.label2.Text = "Observaciones:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // txtObsBox
+            // 
+            this.txtObsBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtObsBox.Location = new System.Drawing.Point(177, 295);
+            this.txtObsBox.Name = "txtObsBox";
+            this.txtObsBox.Size = new System.Drawing.Size(200, 25);
+            this.txtObsBox.TabIndex = 36;
+            // 
             // ProcesoJuridico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
-            this.ClientSize = new System.Drawing.Size(489, 404);
+            this.ClientSize = new System.Drawing.Size(489, 424);
+            this.Controls.Add(this.txtObsBox);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonGuardar);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listStatus);
@@ -262,14 +289,16 @@
         public TextBox NoContrato;
         public Label contrato;
         public Label Fecha;
-        private DateTimePicker fechaOficio;
         public Label TotalDem;
         public TextBox totalDemanda;
         public Label abogado;
-        private ComboBox listAbogado;
-        private ComboBox listStatus;
         public Label label1;
         private Button buttonGuardar;
         private Button button1;
+        public DateTimePicker fechaOficio;
+        public ComboBox listAbogado;
+        public ComboBox listStatus;
+        public Label label2;
+        public TextBox txtObsBox;
     }
 }
