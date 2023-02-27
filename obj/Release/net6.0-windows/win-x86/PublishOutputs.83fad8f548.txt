@@ -1,7 +1,0 @@
-C:\Users\sams\Desktop\Nueva carpeta\Modulos.pdb
-C:\Users\sams\Desktop\Nueva carpeta\D3DCompiler_47_cor3.dll
-C:\Users\sams\Desktop\Nueva carpeta\PenImc_cor3.dll
-C:\Users\sams\Desktop\Nueva carpeta\PresentationNative_cor3.dll
-C:\Users\sams\Desktop\Nueva carpeta\vcruntime140_cor3.dll
-C:\Users\sams\Desktop\Nueva carpeta\wpfgfx_cor3.dll
-C:\Users\sams\Desktop\Nueva carpeta\Modulos.exe
