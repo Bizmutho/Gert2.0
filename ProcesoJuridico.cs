@@ -17,10 +17,13 @@ namespace Modulos
     public partial class ProcesoJuridico : Form
     {
         Conexion Con;
-        public ProcesoJuridico()
+        int i = 0;
+       
+        public ProcesoJuridico(int ix)
         {
             InitializeComponent();
             Con = new Conexion();
+            i = ix;
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -117,29 +120,66 @@ namespace Modulos
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Con.crearConexion();
-            Con.OpenConnection();
+            if (i==0)
+            {
+                Con.crearConexion();
+                Con.OpenConnection();
 
-            string query = ("INSERT INTO estatus_juridico(IdPrestamo, FechaOficio, TotalDemanda, Abogado, Estatus) VALUES" +
-                "('" + NoContrato.Text + "', '" + fechaOficio.Text + "', '" + totalDemanda.Text + "', '" + listAbogado.SelectedValue + "', '" + listStatus.Text + "');");
-            MySqlCommand cmd = new MySqlCommand(query, Con.GetConnection());
+                String queryCheckExist = "SELECT IdPrestamo FROM estatus_juridico where IdPrestamo = "+ NoContrato.Text + " and Activo = 1;";
+                MySqlCommand cmdCheck = new MySqlCommand(queryCheckExist, Con.GetConnection());
+                cmdCheck.CommandTimeout = 100000;
+                MySqlDataReader data = cmdCheck.ExecuteReader();
+                Boolean exist = !data.HasRows;
 
-            cmd.ExecuteNonQuery();
+                Con.CloseConnection();
+                Con.crearConexion();
+                Con.OpenConnection();
+
+                if (exist)
+                {
+                    string query = ("INSERT INTO estatus_juridico(IdPrestamo, FechaOficio, TotalDemanda, Abogado, Estatus, Observacion) VALUES" +
+                    "('" + NoContrato.Text + "', '" + fechaOficio.Text + "', '" + totalDemanda.Text + "', '" + listAbogado.SelectedValue + "', '" + listStatus.Text + "' , '" + txtObsBox.Text + "', 1);");
+                    MySqlCommand cmdJuridico = new MySqlCommand(query, Con.GetConnection());
+                    cmdJuridico.CommandTimeout = 100000;
+                    cmdJuridico.ExecuteNonQuery();
 
 
-            MessageBox.Show("REGISTRO EXITOSO");
+                    MessageBox.Show("REGISTRO EXITOSO");
+                    Console.WriteLine("i= " + i);
 
-
-            NoContrato.Text = "";
-            fechaOficio.Text = "";
-            totalDemanda.Text = "";
-            listAbogado.Text = "";
-            listStatus.Text = "";
+                    NoContrato.Text = "";
+                    fechaOficio.Text = "";
+                    totalDemanda.Text = "";
+                    listAbogado.Text = "";
+                    listStatus.Text = "";
+                    txtObsBox.Text = "";
+                } else
+                {
+                    MessageBox.Show("EL SOCIO YA SE ENCUENTRA EN PROCESO JURIDICO");
+                }
+            } else
+            {
+                Console.WriteLine("Entró al update");
+                string f = fechaOficio.Text;
+                string d = totalDemanda.Text;
+                string s = listStatus.Text;
+                string i = NoContrato.Text;
+                string o = txtObsBox.Text;
+                EstatusJuridico_Controller ej = new EstatusJuridico_Controller();
+                ej.updateJuridico(f, d, s, i, o);
+                this.Close();
+            }
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

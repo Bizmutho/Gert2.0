@@ -10,13 +10,14 @@ namespace Modulos.Clases
 {
     public class MorosidadCartera_Controller
     {
-        Conexion conCreditos, conSaldo;
+        Conexion conCreditos, conSaldo, conDemanda;
         DateTime qncAct;
 
         public MorosidadCartera_Controller()
         {
             conCreditos = new Conexion();
             conSaldo = new Conexion();
+            conDemanda = new Conexion();
             qncAct = DateTime.Now;
         }
 
@@ -25,12 +26,17 @@ namespace Modulos.Clases
             DateTime[] qnc = new DateTime[0];
             DateTime final = new DateTime();
             float[] pendiente = new float[0];
-            float pago, pagado, vencido = 0, prestado = 0;
+            float pago = 0, pagado, vencido = 0, prestado = 0;
             float Tpendiente = 0;
             int IdCredito, Credito = 0, CPago = 0;
             string NomSocio = "";
             bool isM;
-            DateTime qncAct = DateTime.Now;
+            string status = "";
+            DateTime qncAct = DateTime.Now, qncVen;
+            TimeSpan diasVen;
+            int dias;
+            float tasa=0, moratorios=0, monVen=0; 
+
 
             if (qncAct.Day < 15)
             {
@@ -64,6 +70,9 @@ namespace Modulos.Clases
             dtm.Columns.Add("SALDO VEN");
             dtm.Columns.Add("QNC PEN");
             dtm.Columns.Add("SALDO PEN");
+            dtm.Columns.Add("MORATORIOS");
+            dtm.Columns.Add("TOTAL");
+            dtm.Columns.Add("JURIDICO");
 
             try
             {
@@ -71,10 +80,11 @@ namespace Modulos.Clases
                 conCreditos.OpenConnection();
                 conSaldo.crearConexion();
                 conSaldo.OpenConnection();
-                string sqlCreditos = "", sqlSaldo = "";
-                MySqlCommand cmdCreditos, cmdSaldo;
-                MySqlDataReader resulCreditos, resulSaldo;
-
+                conDemanda.crearConexion();
+                conDemanda.OpenConnection();
+                string sqlCreditos = "", sqlSaldo = "", sqlDemanda = "";
+                MySqlCommand cmdCreditos, cmdSaldo, cmdDemanda;
+                MySqlDataReader resulCreditos, resulSaldo, resulDemanda;
 
                 sqlCreditos = queryCreditos(oficial);
 
@@ -86,6 +96,7 @@ namespace Modulos.Clases
                     while (resulCreditos.Read())
                     {
                         IdCredito = resulCreditos.GetInt32(0);
+                        sqlDemanda = queryDemanda(IdCredito);
                         sqlSaldo = querySaldo(IdCredito);
 
                         cmdSaldo = new MySqlCommand(sqlSaldo, conSaldo.GetConnection());
@@ -93,6 +104,26 @@ namespace Modulos.Clases
                         resulSaldo = cmdSaldo.ExecuteReader();
                         if (resulSaldo.HasRows)
                         {
+                            cmdDemanda = new MySqlCommand(sqlDemanda, conDemanda.GetConnection());
+                            cmdDemanda.CommandTimeout = 1000000;
+                            resulDemanda = cmdDemanda.ExecuteReader();
+
+                            try
+                            {
+                                if (resulDemanda.HasRows)
+                                {
+                                    while (resulDemanda.Read())
+                                    {
+                                        status = resulDemanda.GetString(1);
+                                    }
+
+                                    Console.WriteLine("estatus " + status);
+                                }
+                                else { status = "-"; }
+                            }
+                            catch (Exception ex) { Console.WriteLine("error linea 117"+ex.Message); }
+                            resulDemanda.Close();
+
                             isM = resulSaldo.Read();
                             while (isM)
                             {
@@ -100,9 +131,13 @@ namespace Modulos.Clases
                                 {
                                     qnc = new DateTime[resulSaldo.GetInt32(5)];
                                     pendiente = new float[resulSaldo.GetInt32(5)];
+                                    
                                 }
 
                                 Credito = resulSaldo.GetInt32(0);
+                                qncVen = resulSaldo.GetDateTime(4);
+                                diasVen = DateTime.Now.AddDays(15) - qncVen;
+                                dias = diasVen.Days;
 
                                 if (NomSocio == "")
                                 {
@@ -125,6 +160,10 @@ namespace Modulos.Clases
                                 pendiente[CPago] = pago - pagado;
                                 Tpendiente += pendiente[CPago];
 
+                                tasa = ((resulSaldo.GetFloat(9) * 2) / 30) / 100;
+                                monVen = pago - pagado;
+                                moratorios += (monVen * tasa * dias)*1.16f;
+
                                 if (qnc[CPago] < qncAct)
                                 {
                                     vencido += pendiente[CPago];
@@ -136,7 +175,7 @@ namespace Modulos.Clases
 
                                 CPago++;
                                 isM = resulSaldo.Read();
-                            }
+                            } //aqui termina el while de saldos, de nada
 
                             if (vencido > 0)
                             {
@@ -148,7 +187,10 @@ namespace Modulos.Clases
                                 {
                                     if ((qnc[i] < qncAct) & pendiente[i] > 0)
                                     {
-                                        qncVencidas++;
+                                        if (pendiente[i] > (pago * 0.93))
+                                        {
+                                            qncVencidas++;
+                                        }
                                         salVencido += pendiente[i];
                                     } else if((qnc[i] >= qncAct) & pendiente[i] > 0)
                                     {
@@ -157,15 +199,22 @@ namespace Modulos.Clases
                                     }
                                 }
 
-                                if (qncVencidas > 1)
+                                float total = salVencido + moratorios;
+
+                                if (qncVencidas > 1 || qnc[qnc.Length - 1] < qncAct)
                                 {
-                                    dtm.Rows.Add(NomSocio, Credito, "$ " + prestado, final.ToShortDateString(), qncVencidas, "$ " + salVencido, qncPendientes, "$ " + salPendiente);
+                                    dtm.Rows.Add(NomSocio, Credito, "$ " + prestado, final.ToShortDateString(), qncVencidas, "$ " + salVencido, qncPendientes, "$ " + salPendiente, moratorios.ToString("C"), total.ToString("C"), status);
                                 }
 
                                 qncVencidas = 0;
                                 qncPendientes = 0;
                                 salVencido = 0;
                                 salPendiente = 0;
+                                dias = 0;
+                                moratorios = 0;
+                                tasa = 0;
+                                monVen = 0;
+                                
                             }
 
                             NomSocio = "";
@@ -193,7 +242,7 @@ namespace Modulos.Clases
             {
                 Console.WriteLine("Error: " + e.Message);
             }
-            finally { conCreditos.CloseConnection(); conSaldo.CloseConnection(); }
+            finally { conCreditos.CloseConnection(); conSaldo.CloseConnection(); conDemanda.CloseConnection(); }
 
             return new DataView(dtm);
         }
@@ -216,11 +265,21 @@ namespace Modulos.Clases
             string ReporteInversion = "";
 
             ReporteInversion =
-                "select deudaindividual.PrestamoId, pi.Nombre, pi.Paterno, pi.Materno, deudaindividual.FechaPago, pi.Pagos, TotalPago, sum(ri.Monto) as Pagado, pi.Monto from deudaindividual " +
+                "select deudaindividual.PrestamoId, pi.Nombre, pi.Paterno, pi.Materno, deudaindividual.FechaPago, pi.Pagos, TotalPago, sum(ri.Monto) as Pagado, pi.Monto, pi.Tasa from deudaindividual " +
                 "left join reciboind ri on deudaindividual.Id = ri.PagoNo and ri.Activo = 1 " +
                 "left join prestamosind pi on pi.Id = deudaindividual.PrestamoId " +
                 "where deudaindividual.PrestamoId = " + credito + " and deudaindividual.Activo = 1 " +
                 "group by PagoId";
+
+            return ReporteInversion;
+        }
+
+        public string queryDemanda(int credito)
+        {
+            string ReporteInversion = "";
+
+            ReporteInversion =
+                "select IdPrestamo, Estatus from estatus_juridico where IdPrestamo = " + credito;
 
             return ReporteInversion;
         }

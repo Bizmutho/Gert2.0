@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qQt0n/+1PKaYzQErChWVyoOtD/GFa651zIIB2UzJhpzIVzmy3G2/NUmf5S4K8kdTsKsi7fWXcL1BlJf+jD79aA==",
+  "dgSpecHash": "1gVHZfTO7cOCKA19gaZaMbS3KqESxVwkpstOCMGfxBQq5XuRJjp+xtncum3AAo3K/bMgl6Xrz/RhFoyTiKvJ4A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\sams\\Desktop\\Gert\\Modulos.csproj",
+  "projectFilePath": "C:\\Users\\sams\\source\\repos\\gert\\Modulos.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sams\\.nuget\\packages\\adgv\\0.1.0.10\\adgv.0.1.0.10.nupkg.sha512",
     "C:\\Users\\sams\\.nuget\\packages\\bouncycastle\\1.8.6.1\\bouncycastle.1.8.6.1.nupkg.sha512",
@@ -19,9 +19,12 @@
     "C:\\Users\\sams\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\sams\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\sams\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\sams\\.nuget\\packages\\microsoft.reportingservices.reportviewercontrol.winforms\\150.1537.0\\microsoft.reportingservices.reportviewercontrol.winforms.150.1537.0.nupkg.sha512",
+    "C:\\Users\\sams\\.nuget\\packages\\microsoft.sqlserver.types\\14.0.314.76\\microsoft.sqlserver.types.14.0.314.76.nupkg.sha512",
     "C:\\Users\\sams\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\sams\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\sams\\.nuget\\packages\\mysql.data\\8.0.27\\mysql.data.8.0.27.nupkg.sha512",
+    "C:\\Users\\sams\\.nuget\\packages\\mysqlconnector\\2.1.13\\mysqlconnector.2.1.13.nupkg.sha512",
     "C:\\Users\\sams\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
     "C:\\Users\\sams\\.nuget\\packages\\runtime.any.system.collections\\4.3.0\\runtime.any.system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\sams\\.nuget\\packages\\runtime.any.system.diagnostics.tools\\4.3.0\\runtime.any.system.diagnostics.tools.4.3.0.nupkg.sha512",
@@ -133,17 +136,28 @@
     "C:\\Users\\sams\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512",
     "C:\\Users\\sams\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\sams\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\sams\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\6.0.0\\microsoft.netcore.app.runtime.win-x86.6.0.0.nupkg.sha512",
-    "C:\\Users\\sams\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x86\\6.0.0\\microsoft.windowsdesktop.app.runtime.win-x86.6.0.0.nupkg.sha512",
-    "C:\\Users\\sams\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x86\\6.0.0\\microsoft.aspnetcore.app.runtime.win-x86.6.0.0.nupkg.sha512",
-    "C:\\Users\\sams\\.nuget\\packages\\microsoft.netcore.app.crossgen2.win-x64\\6.0.0\\microsoft.netcore.app.crossgen2.win-x64.6.0.0.nupkg.sha512"
+    "C:\\Users\\sams\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\6.0.10\\microsoft.netcore.app.runtime.win-x86.6.0.10.nupkg.sha512",
+    "C:\\Users\\sams\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x86\\6.0.10\\microsoft.windowsdesktop.app.runtime.win-x86.6.0.10.nupkg.sha512",
+    "C:\\Users\\sams\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x86\\6.0.10\\microsoft.aspnetcore.app.runtime.win-x86.6.0.10.nupkg.sha512",
+    "C:\\Users\\sams\\.nuget\\packages\\microsoft.netcore.app.crossgen2.win-x64\\6.0.10\\microsoft.netcore.app.crossgen2.win-x64.6.0.10.nupkg.sha512"
   ],
   "logs": [
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Microsoft.ReportingServices.ReportViewerControl.Winforms 150.1537.0 depende de Microsoft.SqlServer.Types (>= 14.0.0), pero no se encontró Microsoft.SqlServer.Types 14.0.0. Se resolvió una mejor coincidencia aproximada de Microsoft.SqlServer.Types 14.0.314.76.",
+      "libraryId": "Microsoft.SqlServer.Types",
+      "targetGraphs": [
+        "net6.0-windows7.0",
+        "net6.0-windows7.0/win-x86"
+      ]
+    },
     {
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "El paquete \"ADGV 0.1.0.10\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\" en lugar de la plataforma de destino del proyecto \"net6.0-windows7.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "message": "El paquete \"ADGV 0.1.0.10\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net6.0-windows7.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
       "libraryId": "ADGV",
       "targetGraphs": [
         "net6.0-windows7.0"
@@ -153,7 +167,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "El paquete \"BouncyCastle 1.8.6.1\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\" en lugar de la plataforma de destino del proyecto \"net6.0-windows7.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "message": "El paquete \"BouncyCastle 1.8.6.1\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net6.0-windows7.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
       "libraryId": "BouncyCastle",
       "targetGraphs": [
         "net6.0-windows7.0"
@@ -163,8 +177,28 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "El paquete \"iTextSharp 5.5.13.2\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\" en lugar de la plataforma de destino del proyecto \"net6.0-windows7.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "message": "El paquete \"iTextSharp 5.5.13.2\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net6.0-windows7.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
       "libraryId": "iTextSharp",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "El paquete \"Microsoft.ReportingServices.ReportViewerControl.Winforms 150.1537.0\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net6.0-windows7.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "libraryId": "Microsoft.ReportingServices.ReportViewerControl.Winforms",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "El paquete \"Microsoft.SqlServer.Types 14.0.314.76\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net6.0-windows7.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "libraryId": "Microsoft.SqlServer.Types",
       "targetGraphs": [
         "net6.0-windows7.0"
       ]

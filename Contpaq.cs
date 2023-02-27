@@ -163,8 +163,8 @@ namespace Modulos
         {
             Contpaq_controller cc = new Contpaq_controller();
 
-            StorageClass.contpaqIni = dtpIni.Value;
-            StorageClass.contpaqFin = dtpFin.Value;
+            StorageClass.contpaqIni = new DateTime(dtpIni.Value.Year, dtpIni.Value.Month, dtpIni.Value.Day);
+            StorageClass.contpaqFin = new DateTime(dtpFin.Value.Year, dtpFin.Value.Month, dtpFin.Value.Day);
             StorageClass.contpaqData = dtm;
 
             dgvContpaq.DataSource = null;

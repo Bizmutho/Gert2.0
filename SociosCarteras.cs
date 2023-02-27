@@ -75,7 +75,7 @@ namespace Modulos.Modelos
         private void btnProceso_Click(object sender, EventArgs e)
         {
             
-            Modulos.ProcesoJuridico pj = new Modulos.ProcesoJuridico();
+            Modulos.ProcesoJuridico pj = new Modulos.ProcesoJuridico(0);
             pj.Show();
             pj.NoContrato.Text = this.tablaSocios.CurrentRow.Cells["Id"].Value.ToString();
             pj.Show();

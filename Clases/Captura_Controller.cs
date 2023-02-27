@@ -584,7 +584,7 @@ namespace Modulos.Clases
                     resultados.Read();
                     if (resultados.GetBoolean(0))
                     {
-                        generarDeuda(StorageClass.getIdC(), resultados.GetInt32(1), resultados.GetInt32(2), resultados.GetInt32(3), resultados.GetInt32(4), resultados.GetDateTime(5));
+                        generarDeuda(StorageClass.getIdC(), resultados.GetInt32(1), resultados.GetInt32(2), resultados.GetInt32(3), resultados.GetFloat(4), resultados.GetDateTime(5));
                     }
                 }
                 else
@@ -876,7 +876,7 @@ namespace Modulos.Clases
             return ReporteInversion;
         }
 
-        public void generarDeuda(int Credito, int M, int I, int P, int T, DateTime qncIni)
+        public void generarDeuda(int Credito, int M, int I, int P, float T, DateTime qncIni)
         {
             String query = "update prestamosind set USRCambio = "+ StorageClass.getId() +", FHACambio = now(), Activo = 1, Estatus = 0 where Id = " + Credito;
             

@@ -23,7 +23,7 @@ namespace Modulos
 
             cbOficiales.SelectedIndex = 0;
 
-
+             
             DataTable dtm = new DataTable();
             dtm.Columns.Add("SOCIO");
             dtm.Columns.Add("CREDITO");
