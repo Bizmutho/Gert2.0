@@ -1,4 +1,6 @@
-﻿using Modulos.Clases;
+﻿using Microsoft.Office.Interop.Excel;
+using Modulos.Clases;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +17,7 @@ namespace Modulos
     {
         EstatusJuridico_Controller est = new EstatusJuridico_Controller();
         List<(int, string)> list = new List<(int, string)> ();
-
+        Conexion con;
         public Estatus_Juridico()
         {
             InitializeComponent();
@@ -23,16 +25,19 @@ namespace Modulos
             for(int i = 0; i < list.Count; i++)
             {
                 comboLawyer.Items.Add (list[i].Item2);
-            
             }
-
+            con = new Conexion();
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(comboLawyer.SelectedIndex+1);
-            int lawindex = comboLawyer.SelectedIndex+1;   
+            buscar();
+        }
+
+        public void buscar()
+        {
+            int lawindex = comboLawyer.SelectedIndex + 1;
             EstatusJuridico_Controller ejc = new EstatusJuridico_Controller();
             adgvJuridico.DataSource = ejc.procesList(lawindex);
         }
@@ -63,6 +68,42 @@ namespace Modulos
         private void adgvJuridico_SortStringChanged_1(object sender, EventArgs e)
         {
             ((DataView)adgvJuridico.DataSource).Sort = adgvJuridico.SortString;
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            String credito = adgvJuridico.CurrentRow.Cells["CREDITO"].Value.ToString();
+
+            var confirmResult = MessageBox.Show("¿Eliminar proceso juridico para el prestamo "+credito+"?",
+                                     "¿Eliminar?",
+                                     MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                String query = "UPDATE estatus_juridico SET Activo = 0 WHERE IdPrestamo = " + credito + " AND Activo = 1;"; ;
+
+                try
+                {
+                    con.crearConexion();
+                    con.OpenConnection();
+
+                    MySqlCommand command = new MySqlCommand(query, con.GetConnection());
+                    command.CommandTimeout = 100000;
+
+                    command.ExecuteNonQuery();
+
+                    buscar();
+
+                }
+                catch (Exception error)
+                {
+                    Console.WriteLine("Error cancelando el deposito: " + error.Message);
+                }
+                finally
+                {
+                    con.CloseConnection();
+                }
+            }
+                
         }
     }
 }

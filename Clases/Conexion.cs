@@ -10,7 +10,8 @@ namespace Modulos
     public class Conexion
     {
         private MySqlConnection connection;
-        private string server = "serveri";
+        //private string server = "127.0.0.1";
+        private string server = "SERVERI";
         private string database = "emprendedor";
         private string uid = "SICartera";
         private string password = "cartera1";

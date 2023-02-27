@@ -1,10 +1,16 @@
-﻿using MySql.Data.MySqlClient;
+﻿using DocumentFormat.OpenXml.Drawing.Charts;
+using DocumentFormat.OpenXml.Spreadsheet;
+using DocumentFormat.OpenXml.Wordprocessing;
+using Moratorios;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static ClosedXML.Excel.XLPredefinedFormat;
+using DataTable = System.Data.DataTable;
 
 namespace Modulos.Clases
 {
@@ -39,16 +45,23 @@ namespace Modulos.Clases
             dt2.Clear();
             da2.Fill(dt2);
             tb.DataSource = dt2;
-
-
-
-
         }
 
         public string queryConsulta(int idOficial)
         {
             string oficial = "";
-            oficial = "select pr.Id, concat(socios.Nombre, ' ', socios.Paterno, ' ', socios.Materno) Nombre, pr.Monto, pr.Pagos, pr.Tasa, ciudad.Ciudad, \r\nconcat(socios.Direccion, ' Colonia ', socios.Colonia, ' No. ', socios.NoExterior) Direccion, \r\nsocios.Telefono, pr.Aval1, concat(pr.A1Direccion, ' Colonia ', pr.A1Colonia) DireccionAval, pr.A1Telefono\r\nfrom prestamosind as pr\r\ninner join socios on pr.SocioId = socios.Id\r\ninner join localidad  on socios.LocalidadId = localidad.Id\r\ninner join ciudad on localidad.CiudadId = ciudad.Id\r\ninner join personal on pr.OficialId = personal.Id\r\nwhere pr.OficialId = '" + idOficial + "'and pr.Activo = 1;\r\n";
+            oficial = "select pr.Id, date(inicio) as FechaInicio, date(fin) as FechaFin, round(TotalPago, 2) TotalPago, " +
+                    "concat(socios.Nombre, ' ', socios.Paterno, ' ', socios.Materno) Nombre, pr.Monto, pr.Pagos, pr.Tasa, ciudad.Ciudad, " +
+                    "socios.Direccion, socios.Colonia, socios.NoExterior, socios.CodigoPostal, " +
+                    "socios.Telefono, pr.Aval1, concat(pr.A1Direccion, ' Colonia ', pr.A1Colonia) DireccionAval, pr.A1Telefono " +
+                    "from prestamosind as pr inner join socios on pr.SocioId = socios.Id " +
+                    "inner join localidad on socios.LocalidadId = localidad.Id " +
+                    "inner join ciudad on localidad.CiudadId = ciudad.Id " +
+                    "inner join personal on pr.OficialId = personal.Id " +
+                    "left join(select PrestamoId, min(FechaPago) as inicio from deudaindividual where Activo = 1 group by PrestamoId) minPago on minPago.PrestamoId = pr.id " +
+                    "left join(select PrestamoId, max(FechaPago) as fin from deudaindividual where Activo = 1 group by PrestamoId) maxPago on maxPago.PrestamoId = pr.id " +
+                    "left join(select PrestamoId, TotalPago, min(FechaPago) from deudaindividual where Activo = 1 group by PrestamoId) monPago on monPago.PrestamoId = pr.id " +
+                    "where pr.OficialId =" + idOficial + " and pr.Activo = 1;";
 
             return oficial;
         }

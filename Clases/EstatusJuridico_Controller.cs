@@ -114,7 +114,7 @@ namespace Modulos.Clases
                     "inner join localidad as lc on sc.LocalidadId = lc.Id "+
                     "inner join ciudad as cd on lc.CiudadId = cd.Id "+
                     "inner join personal as pe on pr.OficialId = pe.Id "+
-                    "inner join abogados as ab on ej.Abogado = ab.Id where ej.Abogado = " + oficial.ToString();
+                    "inner join abogados as ab on ej.Abogado = ab.Id where ej.Activo = 1 and ej.Abogado = " + oficial.ToString();
                 MySqlCommand cdm = new MySqlCommand(sql, con.GetConnection());
                 cdm.CommandTimeout = 1000000;
                 MySqlDataReader resultados = cdm.ExecuteReader();

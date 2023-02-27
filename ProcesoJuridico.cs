@@ -125,22 +125,38 @@ namespace Modulos
                 Con.crearConexion();
                 Con.OpenConnection();
 
-                string query = ("INSERT INTO estatus_juridico(IdPrestamo, FechaOficio, TotalDemanda, Abogado, Estatus, Observacion) VALUES" +
-                    "('" + NoContrato.Text + "', '" + fechaOficio.Text + "', '" + totalDemanda.Text + "', '" + listAbogado.SelectedValue + "', '" + listStatus.Text +"' , '"+ txtObsBox.Text+"');");
-                MySqlCommand cmd = new MySqlCommand(query, Con.GetConnection());
+                String queryCheckExist = "SELECT IdPrestamo FROM estatus_juridico where IdPrestamo = "+ NoContrato.Text + " and Activo = 1;";
+                MySqlCommand cmdCheck = new MySqlCommand(queryCheckExist, Con.GetConnection());
+                cmdCheck.CommandTimeout = 100000;
+                MySqlDataReader data = cmdCheck.ExecuteReader();
+                Boolean exist = !data.HasRows;
 
-                cmd.ExecuteNonQuery();
+                Con.CloseConnection();
+                Con.crearConexion();
+                Con.OpenConnection();
+
+                if (exist)
+                {
+                    string query = ("INSERT INTO estatus_juridico(IdPrestamo, FechaOficio, TotalDemanda, Abogado, Estatus, Observacion) VALUES" +
+                    "('" + NoContrato.Text + "', '" + fechaOficio.Text + "', '" + totalDemanda.Text + "', '" + listAbogado.SelectedValue + "', '" + listStatus.Text + "' , '" + txtObsBox.Text + "', 1);");
+                    MySqlCommand cmdJuridico = new MySqlCommand(query, Con.GetConnection());
+                    cmdJuridico.CommandTimeout = 100000;
+                    cmdJuridico.ExecuteNonQuery();
 
 
-                MessageBox.Show("REGISTRO EXITOSO");
-                Console.WriteLine("i= "+i);
+                    MessageBox.Show("REGISTRO EXITOSO");
+                    Console.WriteLine("i= " + i);
 
-                NoContrato.Text = "";
-                fechaOficio.Text = "";
-                totalDemanda.Text = "";
-                listAbogado.Text = "";
-                listStatus.Text = "";
-                txtObsBox.Text = "";
+                    NoContrato.Text = "";
+                    fechaOficio.Text = "";
+                    totalDemanda.Text = "";
+                    listAbogado.Text = "";
+                    listStatus.Text = "";
+                    txtObsBox.Text = "";
+                } else
+                {
+                    MessageBox.Show("EL SOCIO YA SE ENCUENTRA EN PROCESO JURIDICO");
+                }
             } else
             {
                 Console.WriteLine("Entró al update");
