@@ -1,7 +1,0 @@
-C:\Users\sams\Desktop\GERT x62\GERT\Modulos.pdb
-C:\Users\sams\Desktop\GERT x62\GERT\D3DCompiler_47_cor3.dll
-C:\Users\sams\Desktop\GERT x62\GERT\PenImc_cor3.dll
-C:\Users\sams\Desktop\GERT x62\GERT\PresentationNative_cor3.dll
-C:\Users\sams\Desktop\GERT x62\GERT\vcruntime140_cor3.dll
-C:\Users\sams\Desktop\GERT x62\GERT\wpfgfx_cor3.dll
-C:\Users\sams\Desktop\GERT x62\GERT\Modulos.exe
