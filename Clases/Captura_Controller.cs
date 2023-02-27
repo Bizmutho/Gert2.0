@@ -863,17 +863,14 @@ namespace Modulos.Clases
 
         public string query(int credito)
         {
-            string ReporteInversion = "";
-
-            ReporteInversion =
+            string quincenas =
                 "select deudaindividual.Id, deudaindividual.FechaPago, PagoId, deudaindividual.Monto, deudaindividual.Moratorio, TotalPago, sum(ri.Monto) as Pagado, concat(personal.nombre, ' ', personal.paterno, ' ', personal.materno) as Oficial, prestamosind.Monto as Prestado from deudaindividual " +
                 "left join reciboind ri on deudaindividual.Id = ri.PagoNo and ri.Activo = 1 " +
                 "left join prestamosind on prestamosind.id = deudaindividual.PrestamoId " +
                 "left join personal on personal.id = prestamosind.OficialId " +
                 "where deudaindividual.PrestamoId = " + credito + " and deudaindividual.Activo = 1 " +
                 "group by PagoId";
-
-            return ReporteInversion;
+            return quincenas;
         }
 
         public void generarDeuda(int Credito, int M, int I, int P, float T, DateTime qncIni)

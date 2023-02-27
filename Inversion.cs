@@ -32,7 +32,7 @@ namespace Moratorios
                 Inversion_Controller datos = new Inversion_Controller();
                 DateTime fechaI = dtpInicio.Value;
                 DateTime fechaF = dtpFin.Value;
-                DataTable informacion = datos.RetornoInversión(fechaI.Year, fechaI.Month, fechaF.Year, fechaF.Month);
+                DataTable informacion = datos.RetornoInversion(fechaI.Year, fechaI.Month, fechaF.Year, fechaF.Month);
                 dgvInversion.DataSource = informacion;
 
                 dgvInversion.RowHeadersVisible = false;

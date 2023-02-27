@@ -162,7 +162,7 @@ namespace Modulos.Clases
 
             }
 
-            Total = Tvencido + tintDia;
+            Total = Tvencido + (float) Math.Round(tintDia + (tintDia * .16), 2);
             dtr.Rows.Add("Total", Math.Round(Total, 2) > 0 ? Math.Round(Total, 2) : 0);
 
             dvm.DataSource = dtm;

@@ -16,7 +16,7 @@ namespace Modulos.Clases
             con = new Conexion();
         }
 
-        public DataTable RetornoInversión(int ano1, int mes1, int ano2, int mes2)
+        public DataTable RetornoInversion(int ano1, int mes1, int ano2, int mes2)
         {
             DataTable datosT = new DataTable();
             datosT.Columns.Add("QUINCENA");
