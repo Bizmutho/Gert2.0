@@ -55,6 +55,10 @@
             // 
             this.adgvDepositos.AllowUserToAddRows = false;
             this.adgvDepositos.AllowUserToDeleteRows = false;
+            this.adgvDepositos.AllowUserToOrderColumns = true;
+            this.adgvDepositos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.adgvDepositos.AutoGenerateContextFilters = true;
             this.adgvDepositos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.adgvDepositos.DateWithTime = false;

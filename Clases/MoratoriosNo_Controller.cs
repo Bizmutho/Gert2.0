@@ -34,8 +34,8 @@ namespace Modulos.Clases
             dtm.Columns.Add("Moratorios");
 
             DateTime qnAux = DateTime.Now;
-            DateTime qncAct = qnAux.AddDays(92) ;
-            //DateTime qncAct = qnAux;
+            DateTime qncAct = qnAux.AddDays(15) ;
+           //DateTime qncAct = qnAux;
 
             try
             {
@@ -66,7 +66,7 @@ namespace Modulos.Clases
                             float tasaDia = ((tasa * 2) / 30) / 100;
                             if (vencido >= intereses)
                             {
-                                intDia = intereses * dias * tasaDia;
+                                intDia = vencido * dias * tasaDia;
                             } else if (vencido < intereses && pendiente > 0)
                             {
                                 intDia =vencido * tasaDia * dias;
@@ -162,7 +162,7 @@ namespace Modulos.Clases
 
             }
 
-            Total = Tvencido + tintDia;
+            Total = Tvencido + (float) Math.Round(tintDia + (tintDia * .16), 2);
             dtr.Rows.Add("Total", Math.Round(Total, 2) > 0 ? Math.Round(Total, 2) : 0);
 
             dvm.DataSource = dtm;

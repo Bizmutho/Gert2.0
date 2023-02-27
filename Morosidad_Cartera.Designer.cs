@@ -112,6 +112,9 @@
             // 
             this.adgvMorosos.AllowUserToAddRows = false;
             this.adgvMorosos.AllowUserToDeleteRows = false;
+            this.adgvMorosos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.adgvMorosos.AutoGenerateContextFilters = true;
             this.adgvMorosos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.adgvMorosos.DateWithTime = false;

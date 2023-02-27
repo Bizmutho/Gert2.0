@@ -207,20 +207,24 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
+            this.label4.Enabled = false;
             this.label4.Location = new System.Drawing.Point(512, 429);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(127, 15);
             this.label4.TabIndex = 15;
             this.label4.Text = "Porcentaje moratorios:";
+            this.label4.Visible = false;
             // 
             // txbPorcentaje
             // 
             this.txbPorcentaje.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbPorcentaje.Enabled = false;
             this.txbPorcentaje.Location = new System.Drawing.Point(512, 447);
             this.txbPorcentaje.Name = "txbPorcentaje";
             this.txbPorcentaje.Size = new System.Drawing.Size(127, 23);
             this.txbPorcentaje.TabIndex = 16;
             this.txbPorcentaje.Text = "30";
+            this.txbPorcentaje.Visible = false;
             // 
             // btnAtras
             // 
@@ -233,7 +237,7 @@
             this.btnAtras.UseVisualStyleBackColor = true;
             this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
-            // Moratorios
+            // MoratoriosNo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -255,7 +259,7 @@
             this.Controls.Add(this.btnCalcular);
             this.Controls.Add(this.txtContrato);
             this.Controls.Add(this.label1);
-            this.Name = "Moratorios";
+            this.Name = "MoratoriosNo";
             this.Text = "Moratorios";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Moratorios_FormClosing);
             this.Load += new System.EventHandler(this.Moratorios_Load);

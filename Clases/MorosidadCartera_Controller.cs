@@ -26,7 +26,7 @@ namespace Modulos.Clases
             DateTime[] qnc = new DateTime[0];
             DateTime final = new DateTime();
             float[] pendiente = new float[0];
-            float pago, pagado, vencido = 0, prestado = 0;
+            float pago = 0, pagado, vencido = 0, prestado = 0;
             float Tpendiente = 0;
             int IdCredito, Credito = 0, CPago = 0;
             string NomSocio = "";
@@ -173,7 +173,10 @@ namespace Modulos.Clases
                                 {
                                     if ((qnc[i] < qncAct) & pendiente[i] > 0)
                                     {
-                                        qncVencidas++;
+                                        if (pendiente[i] > (pago * 0.93))
+                                        {
+                                            qncVencidas++;
+                                        }
                                         salVencido += pendiente[i];
                                     } else if((qnc[i] >= qncAct) & pendiente[i] > 0)
                                     {
@@ -182,7 +185,7 @@ namespace Modulos.Clases
                                     }
                                 }
 
-                                if (qncVencidas > 1)
+                                if (qncVencidas > 1 || qnc[qnc.Length - 1] < qncAct)
                                 {
                                     dtm.Rows.Add(NomSocio, Credito, "$ " + prestado, final.ToShortDateString(), qncVencidas, "$ " + salVencido, qncPendientes, "$ " + salPendiente, status);
                                 }

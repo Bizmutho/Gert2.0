@@ -120,8 +120,7 @@ namespace Moratorios
 
         private void Moratorios_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.ExitThread();
-            Application.Exit();
+            this.Dispose();
         }
     }
 }

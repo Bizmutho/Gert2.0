@@ -32,6 +32,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.adgvJuridico = new ADGV.AdvancedDataGridView();
+            this.btnEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.adgvJuridico)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,6 +75,9 @@
             // 
             this.adgvJuridico.AllowUserToAddRows = false;
             this.adgvJuridico.AllowUserToDeleteRows = false;
+            this.adgvJuridico.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.adgvJuridico.AutoGenerateContextFilters = true;
             this.adgvJuridico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.adgvJuridico.DateWithTime = false;
@@ -87,12 +91,26 @@
             this.adgvJuridico.SortStringChanged += new System.EventHandler(this.adgvJuridico_SortStringChanged_1);
             this.adgvJuridico.FilterStringChanged += new System.EventHandler(this.adgvJuridico_FilterStringChanged);
             // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEliminar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnEliminar.Location = new System.Drawing.Point(659, 34);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(136, 23);
+            this.btnEliminar.TabIndex = 5;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
             // Estatus_Juridico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
             this.ClientSize = new System.Drawing.Size(1023, 450);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.adgvJuridico);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -109,5 +127,6 @@
         private Button button1;
         private Button button2;
         private ADGV.AdvancedDataGridView adgvJuridico;
+        private Button btnEliminar;
     }
 }
