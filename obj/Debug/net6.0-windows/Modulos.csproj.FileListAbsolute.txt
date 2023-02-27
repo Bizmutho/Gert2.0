@@ -108,6 +108,7 @@ C:\Users\sams\source\repos\gert\obj\Debug\net6.0-windows\refint\Modulos.dll
 C:\Users\sams\source\repos\gert\obj\Debug\net6.0-windows\Modulos.pdb
 C:\Users\sams\source\repos\gert\obj\Debug\net6.0-windows\Modulos.genruntimeconfig.cache
 C:\Users\sams\source\repos\gert\obj\Debug\net6.0-windows\ref\Modulos.dll
+<<<<<<< HEAD
 C:\gert\bin\Debug\net6.0-windows\Modulos.exe
 C:\gert\bin\Debug\net6.0-windows\Modulos.deps.json
 C:\gert\bin\Debug\net6.0-windows\Modulos.runtimeconfig.json
@@ -218,3 +219,5 @@ C:\gert\obj\Debug\net6.0-windows\refint\Modulos.dll
 C:\gert\obj\Debug\net6.0-windows\Modulos.pdb
 C:\gert\obj\Debug\net6.0-windows\Modulos.genruntimeconfig.cache
 C:\gert\obj\Debug\net6.0-windows\ref\Modulos.dll
+=======
+>>>>>>> 32c9207ad8ad8612efb5c57cd02e3e6cdf1b7446

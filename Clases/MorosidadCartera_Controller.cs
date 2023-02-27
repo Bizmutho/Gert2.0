@@ -32,7 +32,11 @@ namespace Modulos.Clases
             string NomSocio = "";
             bool isM;
             string status = "";
-            DateTime qncAct = DateTime.Now;
+            DateTime qncAct = DateTime.Now, qncVen;
+            TimeSpan diasVen;
+            int dias;
+            float tasa=0, moratorios=0, monVen=0; 
+
 
             if (qncAct.Day < 15)
             {
@@ -66,6 +70,8 @@ namespace Modulos.Clases
             dtm.Columns.Add("SALDO VEN");
             dtm.Columns.Add("QNC PEN");
             dtm.Columns.Add("SALDO PEN");
+            dtm.Columns.Add("MORATORIOS");
+            dtm.Columns.Add("TOTAL");
             dtm.Columns.Add("JURIDICO");
 
             try
@@ -125,9 +131,13 @@ namespace Modulos.Clases
                                 {
                                     qnc = new DateTime[resulSaldo.GetInt32(5)];
                                     pendiente = new float[resulSaldo.GetInt32(5)];
+                                    
                                 }
 
                                 Credito = resulSaldo.GetInt32(0);
+                                qncVen = resulSaldo.GetDateTime(4);
+                                diasVen = DateTime.Now.AddDays(15) - qncVen;
+                                dias = diasVen.Days;
 
                                 if (NomSocio == "")
                                 {
@@ -150,6 +160,10 @@ namespace Modulos.Clases
                                 pendiente[CPago] = pago - pagado;
                                 Tpendiente += pendiente[CPago];
 
+                                tasa = ((resulSaldo.GetFloat(9) * 2) / 30) / 100;
+                                monVen = pago - pagado;
+                                moratorios += (monVen * tasa * dias)*1.16f;
+
                                 if (qnc[CPago] < qncAct)
                                 {
                                     vencido += pendiente[CPago];
@@ -161,7 +175,7 @@ namespace Modulos.Clases
 
                                 CPago++;
                                 isM = resulSaldo.Read();
-                            }
+                            } //aqui termina el while de saldos, de nada
 
                             if (vencido > 0)
                             {
@@ -185,15 +199,22 @@ namespace Modulos.Clases
                                     }
                                 }
 
+                                float total = salVencido + moratorios;
+
                                 if (qncVencidas > 1 || qnc[qnc.Length - 1] < qncAct)
                                 {
-                                    dtm.Rows.Add(NomSocio, Credito, "$ " + prestado, final.ToShortDateString(), qncVencidas, "$ " + salVencido, qncPendientes, "$ " + salPendiente, status);
+                                    dtm.Rows.Add(NomSocio, Credito, "$ " + prestado, final.ToShortDateString(), qncVencidas, "$ " + salVencido, qncPendientes, "$ " + salPendiente, moratorios.ToString("C"), total.ToString("C"), status);
                                 }
 
                                 qncVencidas = 0;
                                 qncPendientes = 0;
                                 salVencido = 0;
                                 salPendiente = 0;
+                                dias = 0;
+                                moratorios = 0;
+                                tasa = 0;
+                                monVen = 0;
+                                
                             }
 
                             NomSocio = "";
@@ -244,7 +265,7 @@ namespace Modulos.Clases
             string ReporteInversion = "";
 
             ReporteInversion =
-                "select deudaindividual.PrestamoId, pi.Nombre, pi.Paterno, pi.Materno, deudaindividual.FechaPago, pi.Pagos, TotalPago, sum(ri.Monto) as Pagado, pi.Monto from deudaindividual " +
+                "select deudaindividual.PrestamoId, pi.Nombre, pi.Paterno, pi.Materno, deudaindividual.FechaPago, pi.Pagos, TotalPago, sum(ri.Monto) as Pagado, pi.Monto, pi.Tasa from deudaindividual " +
                 "left join reciboind ri on deudaindividual.Id = ri.PagoNo and ri.Activo = 1 " +
                 "left join prestamosind pi on pi.Id = deudaindividual.PrestamoId " +
                 "where deudaindividual.PrestamoId = " + credito + " and deudaindividual.Activo = 1 " +

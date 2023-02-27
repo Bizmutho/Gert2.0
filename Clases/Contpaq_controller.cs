@@ -33,6 +33,7 @@ namespace Modulos.Clases
                 con.OpenConnection();
 
                 MySqlCommand command = new MySqlCommand(queryCreditos(ini, fin), con.GetConnection());
+                Console.WriteLine(queryCreditos(ini, fin));
                 command.CommandTimeout = 100000;
                 MySqlDataReader data = command.ExecuteReader();
 
