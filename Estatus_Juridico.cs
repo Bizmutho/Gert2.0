@@ -39,20 +39,21 @@ namespace Modulos
         {
             int lawindex = comboLawyer.SelectedIndex + 1;
             EstatusJuridico_Controller ejc = new EstatusJuridico_Controller();
+            adgvJuridico.Columns.Clear();
             adgvJuridico.DataSource = ejc.procesList(lawindex);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             ProcesoJuridico pr = new ProcesoJuridico(1);
-            pr.NoContrato.Text = adgvJuridico.CurrentRow.Cells["CREDITO"].Value.ToString();
-            string fecha = adgvJuridico.CurrentRow.Cells["FECHA OFICIO"].Value.ToString();
+            pr.NoContrato.Text = adgvJuridico.CurrentRow.Cells["No. Credito"].Value.ToString();
+            string fecha = adgvJuridico.CurrentRow.Cells["Fecha oficio"].Value.ToString();
             DateTime auxDate = DateTime.Parse(fecha);
             pr.fechaOficio.Value = auxDate;
-            pr.totalDemanda.Text = adgvJuridico.CurrentRow.Cells["TOTAL DEMANDA"].Value.ToString();
+            pr.totalDemanda.Text = adgvJuridico.CurrentRow.Cells["Moratorio"].Value.ToString();
             pr.listAbogado.Enabled = false;
-            string status = adgvJuridico.CurrentRow.Cells["ESTATUS"].Value.ToString();
-            string obs = adgvJuridico.CurrentRow.Cells["OBSERVACIONES"].Value.ToString();
+            string status = adgvJuridico.CurrentRow.Cells["Estatus"].Value.ToString();
+            string obs = adgvJuridico.CurrentRow.Cells["Observaciones"].Value.ToString();
             pr.listStatus.SelectedItem = status;
             pr.txtObsBox.Text = obs;
             pr.Visible = true;
