@@ -137,8 +137,8 @@ namespace Modulos
 
                 if (exist)
                 {
-                    string query = ("INSERT INTO estatus_juridico(IdPrestamo, FechaOficio, TotalDemanda, Abogado, Estatus, Observacion) VALUES" +
-                    "('" + NoContrato.Text + "', '" + fechaOficio.Text + "', '" + totalDemanda.Text + "', '" + listAbogado.SelectedValue + "', '" + listStatus.Text + "' , '" + txtObsBox.Text + "', 1);");
+                    string query = ("INSERT INTO estatus_juridico(IdPrestamo, FechaOficio, Moratorios, Abogado, Estatus, Liquido_con, Observacion, Activo) VALUES" +
+                    "('" + NoContrato.Text + "', '" + fechaOficio.Text + "', '" + totalDemanda.Text + "', '" + listAbogado.SelectedValue + "', '" + listStatus.Text + "' , 0, '" + txtObsBox.Text + "', 1);");
                     MySqlCommand cmdJuridico = new MySqlCommand(query, Con.GetConnection());
                     cmdJuridico.CommandTimeout = 100000;
                     cmdJuridico.ExecuteNonQuery();
@@ -166,7 +166,7 @@ namespace Modulos
                 string i = NoContrato.Text;
                 string o = txtObsBox.Text;
                 EstatusJuridico_Controller ej = new EstatusJuridico_Controller();
-                ej.updateJuridico(f, d, s, i, o);
+                ej.updateJuridico(i, f, d, s, o);
                 this.Close();
             }
            

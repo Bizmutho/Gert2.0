@@ -122,11 +122,11 @@
             this.TotalDem.AutoSize = true;
             this.TotalDem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TotalDem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.TotalDem.Location = new System.Drawing.Point(35, 154);
+            this.TotalDem.Location = new System.Drawing.Point(82, 150);
             this.TotalDem.Name = "TotalDem";
-            this.TotalDem.Size = new System.Drawing.Size(135, 20);
+            this.TotalDem.Size = new System.Drawing.Size(85, 20);
             this.TotalDem.TabIndex = 15;
-            this.TotalDem.Text = "Total de Demanda:";
+            this.TotalDem.Text = "Moratorios:";
             // 
             // totalDemanda
             // 
