@@ -93,6 +93,9 @@
             "CINTHIA MORA (JESUS)",
             "YARITHZA ",
             "YARITHZA REGULARES",
+            "MONSERRAT",
+            "MONSERRAT REGULARES",
+            "MONSERRAT MORA",
             "JUAN CARLOS",
             "JUAN CARLOS (REGULARES)",
             "JUAN CARLOS (MORA)"});

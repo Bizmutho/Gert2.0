@@ -11,7 +11,7 @@ namespace Modulos.Clases
     public class PorcentajesMaj_Controller
     {
         public int[] idOficial = { 30, 152, 87, 32, 145, 29, 112, 161, 110, 165, 163, 151, 150, 148, 108, 164, 174, 173, 175, 176,
-        187, 188, 178, 182, 179, 180, 183, 181, 184, 186, 185, 190, 196, 197, 198};
+        187, 188, 178, 182, 179, 180, 183, 181, 184, 186, 185, 190, 193, 194, 195, 196, 197, 198};
         Conexion con;
         public PorcentajesMaj_Controller()
         {
@@ -20,7 +20,7 @@ namespace Modulos.Clases
 
         public DataTable PorcentajeOficiales(int oficial)
         {
-            DateTime QncAct = DateTime.Now;
+            DateTime QncAct = DateTime.Now; 
             DataTable datosT = new DataTable();
             datosT.Columns.Add("OFICIAL");
             datosT.Columns.Add("QUINCENA");
@@ -193,6 +193,9 @@ namespace Modulos.Clases
                 case 184: return "VICTORIA GERT";
                 case 186: return "VICTORIA REGULARES";
                 case 185: return "VICTORIA MORA";
+                case 193: return "MONSERRAT";
+                case 194: return "MONSERRAT REGULARES";
+                case 195: return "MONSERRAT MORA";
                 default: return "";
             }
         }

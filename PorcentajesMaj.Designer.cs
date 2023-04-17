@@ -74,6 +74,9 @@
             "VICTORIA REGULARES",
             "VICTORIA MORA",
             "YARITHZA",
+            "MONSERRAT",
+            "MONSERRAT REGULARES",
+            "MONSERRAT MORA",
             "JUAN CARLOS",
             "JUAN CARLOS (REGULARES)",
             "JUAN CARLOS (MORA)"});
