@@ -90,7 +90,11 @@
             "VICTORIA GERT",
             "VICTORIA REGULARES",
             "VICTORIA MORA",
-            "NANCY"});
+            "NANCY",
+            "YARITHZA",
+            "JUAN CARLOS",
+            "JUAN CARLOS (REGULARES)",
+            "JUAN CARLOS (MORA)"});
             this.cbOficiales.Location = new System.Drawing.Point(73, 12);
             this.cbOficiales.Name = "cbOficiales";
             this.cbOficiales.Size = new System.Drawing.Size(305, 25);

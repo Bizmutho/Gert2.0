@@ -179,5 +179,17 @@ namespace Moratorios
             System.Windows.Forms.ToolTip ToolTip1 = new System.Windows.Forms.ToolTip();
             ToolTip1.SetToolTip(this.pictureCerrarSesion, "CERRAR SESION");
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Inicio_Controller ini = new Inicio_Controller();
+            ini.cargarExcelJuridico();
+        }
+
+        private void btnHistorialCrediticio_Click(object sender, EventArgs e)
+        {
+            Modulos.historialCredito hc = new historialCredito();
+            hc.Show();
+        }
     }
 }

@@ -50,6 +50,8 @@
             this.Estatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Liquido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Observaciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtTotalDemanda = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.adgvJuridico)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,6 +107,9 @@
             // 
             this.adgvJuridico.AllowUserToAddRows = false;
             this.adgvJuridico.AllowUserToDeleteRows = false;
+            this.adgvJuridico.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.adgvJuridico.AutoGenerateContextFilters = true;
             this.adgvJuridico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.adgvJuridico.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -130,9 +135,12 @@
             this.adgvJuridico.Name = "adgvJuridico";
             this.adgvJuridico.ReadOnly = true;
             this.adgvJuridico.RowTemplate.Height = 25;
-            this.adgvJuridico.Size = new System.Drawing.Size(999, 374);
+            this.adgvJuridico.Size = new System.Drawing.Size(999, 391);
             this.adgvJuridico.TabIndex = 6;
             this.adgvJuridico.TimeFilter = false;
+            this.adgvJuridico.SortStringChanged += new System.EventHandler(this.adgvJuridico_SortStringChanged);
+            this.adgvJuridico.FilterStringChanged += new System.EventHandler(this.adgvJuridico_FilterStringChanged_1);
+            this.adgvJuridico.EnabledChanged += new System.EventHandler(this.adgvJuridico_EnabledChanged);
             // 
             // FechaOficio
             // 
@@ -270,13 +278,38 @@
             this.Observaciones.ReadOnly = true;
             this.Observaciones.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(743, 458);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(142, 17);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Total en demanda:";
+            // 
+            // txtTotalDemanda
+            // 
+            this.txtTotalDemanda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTotalDemanda.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtTotalDemanda.ForeColor = System.Drawing.SystemColors.Control;
+            this.txtTotalDemanda.Location = new System.Drawing.Point(891, 458);
+            this.txtTotalDemanda.Name = "txtTotalDemanda";
+            this.txtTotalDemanda.Size = new System.Drawing.Size(120, 17);
+            this.txtTotalDemanda.TabIndex = 8;
+            this.txtTotalDemanda.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // Estatus_Juridico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
-            this.ClientSize = new System.Drawing.Size(1023, 450);
+            this.ClientSize = new System.Drawing.Size(1023, 484);
+            this.Controls.Add(this.txtTotalDemanda);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.adgvJuridico);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.button2);
@@ -286,6 +319,7 @@
             this.Text = "Estatus_Juridico";
             ((System.ComponentModel.ISupportInitialize)(this.adgvJuridico)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -312,5 +346,7 @@
         private DataGridViewTextBoxColumn Estatus;
         private DataGridViewTextBoxColumn Liquido;
         private DataGridViewTextBoxColumn Observaciones;
+        private Label label1;
+        private Label txtTotalDemanda;
     }
 }

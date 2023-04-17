@@ -83,7 +83,6 @@
             this.txbContra.Name = "txbContra";
             this.txbContra.Size = new System.Drawing.Size(146, 25);
             this.txbContra.TabIndex = 2;
-            this.txbContra.Text = "1123581321ILA";
             this.txbContra.TextChanged += new System.EventHandler(this.txbContra_TextChanged);
             this.txbContra.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox2_KeyUp);
             // 

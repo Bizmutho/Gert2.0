@@ -11,7 +11,7 @@ namespace Modulos.Clases
     public class PorcentajesMaj_Controller
     {
         public int[] idOficial = { 30, 152, 87, 32, 145, 29, 112, 161, 110, 165, 163, 151, 150, 148, 108, 164, 174, 173, 175, 176,
-        187, 188, 178, 182, 179, 180, 183, 181, 184, 186, 185, 190};
+        187, 188, 178, 182, 179, 180, 183, 181, 184, 186, 185, 190, 196, 197, 198};
         Conexion con;
         public PorcentajesMaj_Controller()
         {

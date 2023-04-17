@@ -49,6 +49,7 @@
             this.pictureCerrarSesion = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnHistorialCrediticio = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureCerrarSesion)).BeginInit();
             this.SuspendLayout();
             // 
@@ -201,7 +202,6 @@
             // btnTerminar
             // 
             this.btnTerminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(76)))), ((int)(((byte)(117)))));
-            this.btnTerminar.Enabled = false;
             this.btnTerminar.FlatAppearance.BorderSize = 0;
             this.btnTerminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(97)))), ((int)(((byte)(85)))));
             this.btnTerminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(97)))), ((int)(((byte)(85)))));
@@ -442,6 +442,27 @@
             this.label3.Text = "INICIO";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnHistorialCrediticio
+            // 
+            this.btnHistorialCrediticio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(76)))), ((int)(((byte)(117)))));
+            this.btnHistorialCrediticio.FlatAppearance.BorderSize = 0;
+            this.btnHistorialCrediticio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(97)))), ((int)(((byte)(85)))));
+            this.btnHistorialCrediticio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(97)))), ((int)(((byte)(85)))));
+            this.btnHistorialCrediticio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHistorialCrediticio.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnHistorialCrediticio.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnHistorialCrediticio.Image = ((System.Drawing.Image)(resources.GetObject("btnHistorialCrediticio.Image")));
+            this.btnHistorialCrediticio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHistorialCrediticio.Location = new System.Drawing.Point(509, 470);
+            this.btnHistorialCrediticio.Name = "btnHistorialCrediticio";
+            this.btnHistorialCrediticio.Size = new System.Drawing.Size(217, 65);
+            this.btnHistorialCrediticio.TabIndex = 28;
+            this.btnHistorialCrediticio.Text = "HIST, CREDi.";
+            this.btnHistorialCrediticio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHistorialCrediticio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnHistorialCrediticio.UseVisualStyleBackColor = false;
+            this.btnHistorialCrediticio.Click += new System.EventHandler(this.btnHistorialCrediticio_Click);
+            // 
             // Inicio
             // 
             this.AllowDrop = true;
@@ -449,6 +470,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(69)))), ((int)(((byte)(76)))));
             this.ClientSize = new System.Drawing.Size(750, 563);
+            this.Controls.Add(this.btnHistorialCrediticio);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureCerrarSesion);
             this.Controls.Add(this.button3);
@@ -502,5 +524,6 @@
         private PictureBox pictureCerrarSesion;
         private Label label1;
         private Label label3;
+        private Button btnHistorialCrediticio;
     }
 }

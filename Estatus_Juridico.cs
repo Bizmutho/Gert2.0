@@ -37,10 +37,12 @@ namespace Modulos
 
         public void buscar()
         {
+            txtTotalDemanda.Text = 0.ToString("C");
             int lawindex = comboLawyer.SelectedIndex + 1;
             EstatusJuridico_Controller ejc = new EstatusJuridico_Controller();
             adgvJuridico.Columns.Clear();
             adgvJuridico.DataSource = ejc.procesList(lawindex);
+            txtTotalDemanda.Text = StorageClass.totalDemandas.ToString("C");
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -105,6 +107,21 @@ namespace Modulos
                 }
             }
                 
+        }
+
+        private void adgvJuridico_EnabledChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void adgvJuridico_SortStringChanged(object sender, EventArgs e)
+        {
+            ((DataView)adgvJuridico.DataSource).Sort = adgvJuridico.SortString;
+        }
+
+        private void adgvJuridico_FilterStringChanged_1(object sender, EventArgs e)
+        {
+            ((DataView)adgvJuridico.DataSource).RowFilter = adgvJuridico.FilterString;
         }
     }
 }

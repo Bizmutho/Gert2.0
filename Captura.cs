@@ -420,11 +420,6 @@ namespace Modulos
 
         }
 
-        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void comboBox2_Leave(object sender, EventArgs e)
         {
             if (comboBox2.SelectedIndex < 0)

@@ -25,6 +25,7 @@ namespace Modulos.Clases
         public static DateTime contpaqFin { get; set; }
         public static DataTable contpaqData { get; set; }
         public static DataTable contpaqTotal { get; set; }
+        public static float totalDemandas { get; set; } = 0;
 
         public static int cancelar { get; set; }
         public static float capitalMonto { get; set; }

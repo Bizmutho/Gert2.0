@@ -61,7 +61,10 @@ namespace Modulos.Clases
 
             if (depDesgloce.Count != 0)
             {
-
+                for (int i = 0; i < depDesgloce.Count; i++)
+                {
+                    
+                }
             }
         }
 

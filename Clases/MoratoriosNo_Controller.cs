@@ -34,7 +34,7 @@ namespace Modulos.Clases
             dtm.Columns.Add("Moratorios");
 
             DateTime qnAux = DateTime.Now;
-            DateTime qncAct = qnAux.AddDays(15) ;
+            DateTime qncAct = qnAux.AddDays(90);
            //DateTime qncAct = qnAux;
 
             try

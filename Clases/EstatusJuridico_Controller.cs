@@ -88,6 +88,7 @@ namespace Modulos.Clases
             string status;
             float liquidoCon;
             string obs;
+            float totalDemandas = 0;
 
             DataTable dtm = new DataTable();
             dtm.Columns.Add("Fecha oficio");
@@ -132,7 +133,9 @@ namespace Modulos.Clases
                     "inner join personal as pe on pr.OficialId = pe.Id " +
                     "inner join abogados as ab on ej.Abogado = ab.Id " +
                     "inner join depositoind as di on di.PrestamoId = ej.IdPrestamo " +
-                    "where ej.Activo = 1 and ej.Abogado = " + oficial.ToString();
+                    "where ej.Activo = 1 and ej.Abogado = " + oficial.ToString() + " " +
+                    "group by ej.IdPrestamo";
+                
                 MySqlCommand cdm = new MySqlCommand(sql, con.GetConnection());
                 cdm.CommandTimeout = 1000000;
                 MySqlDataReader resultados = cdm.ExecuteReader();
@@ -158,6 +161,10 @@ namespace Modulos.Clases
                     total = deuda + mora + montoAbogado;
 
                     dtm.Rows.Add(fechaof.ToShortDateString(), credito, empresa, municipio, socio, of, inicioCred.ToShortDateString(), ultimoPago.ToShortDateString(), deuda.ToString("C"), mora.ToString("C"), montoAbogado.ToString("C"), total.ToString("C"), abogado, status, liquidoCon.ToString("C"), obs);
+                    totalDemandas += total;
+                    deuda = 0;
+                    montoAbogado = 0;
+                    total = 0;
                 }
             } catch (System.Exception ex)
             {
@@ -165,7 +172,7 @@ namespace Modulos.Clases
                 MessageBox.Show(ex.ToString());
             }
             finally { conES.CloseConnection();}
-
+            StorageClass.totalDemandas = totalDemandas;
             return new DataView(dtm);
         }
         
@@ -175,7 +182,7 @@ namespace Modulos.Clases
             float pagado, pago;
             con.crearConexion();
             con.OpenConnection();
-            String sql = "select TotalPago, sum(ri.Monto) as Pagado from deudaindividual left join reciboind ri on deudaindividual.Id = ri.PagoNo and ri.Activo = 1 where deudaindividual.PrestamoId = 160 and deudaindividual.Activo = 1 group by PagoId";
+            String sql = $"select TotalPago, ifnull(sum(ri.Monto), 0) as Pagado from deudaindividual left join reciboind ri on deudaindividual.Id = ri.PagoNo and ri.Activo = 1 where deudaindividual.PrestamoId = {credito} and deudaindividual.Activo = 1 group by PagoId";
             
             try
             {
