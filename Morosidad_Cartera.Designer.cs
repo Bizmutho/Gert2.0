@@ -90,7 +90,8 @@
             "VICTORIA GERT",
             "VICTORIA REGULARES",
             "VICTORIA MORA",
-            "NANCY"});
+            "NANCY",
+            "YARITHZA"});
             this.cbOficiales.Location = new System.Drawing.Point(73, 12);
             this.cbOficiales.Name = "cbOficiales";
             this.cbOficiales.Size = new System.Drawing.Size(305, 25);

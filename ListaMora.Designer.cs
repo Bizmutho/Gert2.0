@@ -72,7 +72,8 @@
             "PERSONAL",
             "PROPIOS",
             "VALENTINA",
-            "VICENTE"});
+            "VICENTE",
+            "YARITHZA"});
             this.cbOficiales.Location = new System.Drawing.Point(73, 12);
             this.cbOficiales.Name = "cbOficiales";
             this.cbOficiales.Size = new System.Drawing.Size(121, 27);
