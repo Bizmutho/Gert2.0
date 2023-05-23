@@ -13,7 +13,7 @@ namespace Modulos.Clases
     {
         Conexion con;
         public int[] idOficial = { 112, 145, 110, 29, 87, 165, 144, 172, 108, 169, 152, 155, 170, 163, 166, 148, 171, 151, 160, 161, 30, 32, 164, 168, 173, 174,  175, 176,
-        187, 188, 178, 182, 179, 180, 183, 181, 184, 186, 185, 190, 193, 194, 195, 196, 197, 198};
+        187, 188, 178, 182, 179, 180, 183, 181, 184, 186, 185, 190, 193, 194, 195, 196, 197, 198, 192};
         
         public PorcentajesAtz_Controller()
         {
@@ -162,6 +162,7 @@ namespace Modulos.Clases
                 case 196: return "JUAN CARLOS";
                 case 197: return "JUAN CARLOS (REGULARES)";
                 case 198: return "JUAN CARLOS (MORA)";
+                case 192: return "LUIS ENRIQUE MENA";
                 default: return "";
             }
         }

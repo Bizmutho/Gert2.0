@@ -94,7 +94,11 @@
             "YARITHZA",
             "JUAN CARLOS",
             "JUAN CARLOS (REGULARES)",
-            "JUAN CARLOS (MORA)"});
+            "JUAN CARLOS (MORA)",
+            "MONSERRAT",
+            "MONSERRAT REGULARES",
+            "MONSERRAT MORA",
+            "LUIS ENRIQUE MENA"});
             this.cbOficiales.Location = new System.Drawing.Point(73, 12);
             this.cbOficiales.Name = "cbOficiales";
             this.cbOficiales.Size = new System.Drawing.Size(305, 25);

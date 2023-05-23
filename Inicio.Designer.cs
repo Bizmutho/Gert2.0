@@ -207,7 +207,7 @@
             this.btnTerminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(97)))), ((int)(((byte)(85)))));
             this.btnTerminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTerminar.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnTerminar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnTerminar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnTerminar.Image = ((System.Drawing.Image)(resources.GetObject("btnTerminar.Image")));
             this.btnTerminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTerminar.Location = new System.Drawing.Point(509, 148);

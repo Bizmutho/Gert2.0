@@ -40,8 +40,8 @@ namespace Modulos
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Prestamos_Agregar pa = new Prestamos_Agregar();
-            pa.Show();
+            Captura_Credito cc = new Captura_Credito();
+            cc.Show();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
