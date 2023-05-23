@@ -95,7 +95,10 @@
             "YARITHZA REGULARES",
             "MONSERRAT",
             "MONSERRAT REGULARES",
-            "MONSERRAT MORA"});
+            "MONSERRAT MORA",
+            "JUAN CARLOS",
+            "JUAN CARLOS REGULARES",
+            "JUAN CARLOS MORA"});
             this.listaOficial.Location = new System.Drawing.Point(93, 39);
             this.listaOficial.Name = "listaOficial";
             this.listaOficial.Size = new System.Drawing.Size(258, 23);
