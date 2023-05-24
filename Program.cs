@@ -13,10 +13,13 @@ namespace Modulos
         {
             ApplicationConfiguration.Initialize();
            var ini = new Login();
-           ini.Show();
 
-           //var ini = new ActualizarOficial();
-           //ini.Show();
+            //var ini = new ActualizarOficial();
+
+            //var ini = new Captura();
+
+
+            ini.Show();
 
             Application.Run();
         }

@@ -61,16 +61,21 @@ namespace Modulos.Clases
 
             if (depDesgloce.Count != 0)
             {
-
+                for (int i = 0; i < depDesgloce.Count; i++)
+                {
+                    
+                }
             }
         }
 
         public String queryCreditos(DateTime ini, DateTime fin)
         {
-            return "select " +
+            String query = "select " +
                 "pi.id as pId, di.id as dId, concat(pi.Nombre, ' ', pi.Paterno, ' ', pi.Materno) as socio, concat(p.Nombre, ' ', p.Paterno, ' ', p.Materno) as oficial " +
                 "from depositoind di left join prestamosind pi on pi.id = di.prestamoid left join personal p on p.id = pi.OficialId " +
                 $"where pi.Activo = 1 and di.Activo = 1 and DiaDeposito between '{ini.Year}-{ini.Month.ToString("00")}-{ini.Day.ToString("00")}' and '{fin.Year}-{fin.Month.ToString("00")}-{fin.Day.ToString("00")}'";
+            Console.WriteLine(query);
+            return query;
         }
     }
 }

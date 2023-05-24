@@ -1,9 +1,12 @@
-﻿using System;
+﻿using ClosedXML.Excel;
+using MySql.Data.MySqlClient;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Modulos.Clases
 {
@@ -306,6 +309,110 @@ namespace Modulos.Clases
         static private string QuitarArticulos(string palabra)
         {
             return palabra.Replace("DEL ", string.Empty).Replace("LAS ", string.Empty).Replace("DE ", string.Empty).Replace("LA ", string.Empty).Replace("Y ", string.Empty).Replace("A ", string.Empty);
+        }
+
+        public void cargarExcelJuridico()
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "XLSX (*.xlsx)|*.xlsx";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                string fileName = ofd.FileName;
+                var workbook = new XLWorkbook(fileName);
+                var ws1 = workbook.Worksheet("DEMANDAS");
+                IXLCell fechaOficio;
+
+                String fechaOficioS;
+                String contrato;
+                String empresa;
+                String moraS;
+                double mora;
+                String abogado;
+                int iAbogado = 0;
+                String estatus;
+                String obs;
+
+                int lastIndex = ws1.LastRowUsed().RowNumber();
+                for (int i = 3; i <= lastIndex; i++)
+                {
+
+                    empresa = ws1.Cell(i, 3).Value.ToString();
+
+                    if (empresa.Equals("GERT"))
+                    {
+                        contrato = ws1.Cell(i, 2).Value.ToString();
+                        if (!contrato.Equals(""))
+                        {
+                            if (!ws1.Cell(i, 11).IsEmpty())
+                            {
+                                fechaOficio = ws1.Cell(i, 1);
+                                fechaOficioS = $"{fechaOficio.GetDateTime().Year}-{fechaOficio.GetDateTime().Month.ToString("00")}-{fechaOficio.GetDateTime().Day.ToString("00")}";
+                                mora = ws1.Cell(i, 11).GetDouble();
+                                abogado = ws1.Cell(i, 14).Value.ToString();
+                                estatus = ws1.Cell(i, 15).Value.ToString();
+                                obs = ws1.Cell(i, 17).Value.ToString();
+
+                                if (abogado.Contains("VILLELA"))
+                                {
+                                    iAbogado = 1;
+                                }
+                                else if (abogado.Contains("ENRIQUE"))
+                                {
+                                    iAbogado = 2;
+                                }
+                                else if (abogado.Contains("GALLEGOS"))
+                                {
+                                    iAbogado = 3;
+                                }
+                                else if (abogado.Contains("JOSE"))
+                                {
+                                    iAbogado = 4;
+                                }
+                                else if (abogado.Contains("JUAN"))
+                                {
+                                    iAbogado = 5;
+                                }
+                                else if (abogado.Contains("GRANADOS"))
+                                {
+                                    iAbogado = 6;
+                                }
+                                else if (abogado.Contains("NOE"))
+                                {
+                                    iAbogado = 7;
+                                }
+
+                                insertJuridico(contrato, fechaOficioS, mora.ToString(), iAbogado, estatus, obs);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        public void insertJuridico(String NoContrato, String fechaOficio, String mora, int abogado, String status, String obs)
+        {
+            Conexion con = new Conexion();
+
+            con.crearConexion();
+            con.OpenConnection();
+
+            try
+            {
+                string query = ("INSERT INTO estatus_juridico(IdPrestamo, FechaOficio, Moratorios, Abogado, Estatus, Liquido_con, Observacion, Activo) VALUES" +
+                    "('" + NoContrato + "', '" + fechaOficio + "', '" + mora + "', '" + abogado + "', '" + status + "' , 0, '" + obs + "', 1);");
+                MySqlCommand cmdJuridico = new MySqlCommand(query, con.GetConnection());
+                cmdJuridico.CommandTimeout = 100000;
+                cmdJuridico.ExecuteNonQuery();
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            finally
+            {
+                con.CloseConnection();
+            }
         }
     }
 }

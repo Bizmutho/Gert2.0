@@ -116,8 +116,6 @@ namespace Modulos.Clases
                                     {
                                         status = resulDemanda.GetString(1);
                                     }
-
-                                    Console.WriteLine("estatus " + status);
                                 }
                                 else { status = "-"; }
                             }
