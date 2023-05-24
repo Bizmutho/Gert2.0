@@ -219,7 +219,7 @@ namespace Modulos.Clases
         }
 
         public string query(int credito)
-        {
+        {   
             string ReporteInversion = "";
 
             ReporteInversion =

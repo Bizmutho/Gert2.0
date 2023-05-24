@@ -173,7 +173,7 @@
             this.btnSonia.Name = "btnSonia";
             this.btnSonia.Size = new System.Drawing.Size(217, 65);
             this.btnSonia.TabIndex = 12;
-            this.btnSonia.Text = "Sonia";
+            this.btnSonia.Text = "Datos Socios";
             this.btnSonia.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSonia.UseVisualStyleBackColor = false;
             this.btnSonia.Click += new System.EventHandler(this.btnSonia_Click);

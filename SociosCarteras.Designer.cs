@@ -97,8 +97,8 @@
             "MONSERRAT REGULARES",
             "MONSERRAT MORA",
             "JUAN CARLOS",
-            "JUAN CARLOS (REGULARES)",
-            "JUAN CARLOS (MORA)",
+            "JUAN CARLOS REGULARES",
+            "JUAN CARLOS MORA",
             "LUIS ENRIQUE MENA"});
             this.listaOficial.Location = new System.Drawing.Point(93, 39);
             this.listaOficial.Name = "listaOficial";

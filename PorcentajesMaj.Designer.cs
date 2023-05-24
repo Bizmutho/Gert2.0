@@ -78,8 +78,8 @@
             "MONSERRAT REGULARES",
             "MONSERRAT MORA",
             "JUAN CARLOS",
-            "JUAN CARLOS (REGULARES)",
-            "JUAN CARLOS (MORA)"});
+            "JUAN CARLOS REGULARES",
+            "JUAN CARLOS MORA"});
             this.cbOficiales.Location = new System.Drawing.Point(98, 12);
             this.cbOficiales.Name = "cbOficiales";
             this.cbOficiales.Size = new System.Drawing.Size(121, 27);

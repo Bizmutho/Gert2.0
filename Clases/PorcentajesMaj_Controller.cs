@@ -196,6 +196,9 @@ namespace Modulos.Clases
                 case 193: return "MONSERRAT";
                 case 194: return "MONSERRAT REGULARES";
                 case 195: return "MONSERRAT MORA";
+                case 196: return "JUAN CARLOS";
+                case 197: return "JUAN CALORS REGULARES";
+                case 198: return "JUAN CARLOS MORA";
                 default: return "";
             }
         }
