@@ -165,7 +165,9 @@ namespace Modulos.Clases
                 "where Activo = 1 and PrestamoId in (select Id from prestamosind where (Activo = 1 and Estatus = 0) and Id != 0) group by PrestamoId) di on di.PrestamoId = deudaindividual.PrestamoId " +
                 "left join prestamosind on prestamosind.id = deudaindividual.PrestamoId " +
                 "left join personal on personal.id = prestamosind.OficialId " +
-                "where deudaindividual.PrestamoId in (select Id from prestamosind where(Activo = 1 and Estatus = 0) and Id != 0) group by deudaindividual.PrestamoId " +
+                "where deudaindividual.PrestamoId in (select Id from prestamosind where(Activo = 1 and Estatus = 0) and Id != 0) " +
+                " and deudaindividual.Activo = 1 and deudaindividual.Estatus = 1 " +
+                "group by deudaindividual.PrestamoId " +
                 "order by Oficial ASC, PrestamoId ASC; ";
         }
 

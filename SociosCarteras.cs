@@ -15,8 +15,7 @@ namespace Modulos.Modelos
 {
     public partial class SociosCarteras : Form
     {
-        
-
+        List<(int, String)> oficiales;
 
         public SociosCarteras()
         {
@@ -26,7 +25,27 @@ namespace Modulos.Modelos
 
             StartPosition = FormStartPosition.CenterScreen;
 
-           
+            obtenerOficiales();
+            listaOficial.SelectedIndex = 0;
+        }
+
+        private void obtenerOficiales()
+        {
+            oficiales = new List<(int, string)>();
+            MorosidadCartera_Controller mcc = new MorosidadCartera_Controller();
+            oficiales = mcc.obtenerOficiales();
+
+            listaOficial.Items.Clear();
+
+            if (oficiales.Count != 0)
+            {
+                oficiales.ForEach(oficiales => listaOficial.Items.Add(oficiales.Item2));
+
+            }
+            else
+            {
+                listaOficial.Items.Add("Sin datos.");
+            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -45,9 +64,7 @@ namespace Modulos.Modelos
         private void button1_Click(object sender, EventArgs e)
         {
             SociosCarteras_controller sc2 = new SociosCarteras_controller();
-            sc2.ConsultaTabla(tablaSocios, listaOficial.SelectedIndex);
-
-        
+            sc2.ConsultaTabla(tablaSocios, oficiales[listaOficial.SelectedIndex].Item1);
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

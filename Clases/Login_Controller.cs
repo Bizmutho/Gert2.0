@@ -43,7 +43,8 @@ namespace Modulos.Clases
                 }
             } catch(Exception ex)
             {
-                Console.WriteLine("La base de datos se la cargo el payaso");
+                Console.WriteLine("Error en el servidor, favor de verificarlo: " + ex.Message);
+                //Console.WriteLine("La base de datos se la cargo el payaso");
                 return 3;
             }
             return 2;

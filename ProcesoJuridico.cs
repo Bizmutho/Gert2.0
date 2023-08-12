@@ -39,13 +39,15 @@ namespace Modulos
 
         private void totalDemanda_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsNumber(e.KeyChar) && (e.KeyChar != (char)Keys.Back))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
-                MessageBox.Show("Solo se permiten números");
                 e.Handled = true;
-                return;
             }
-            
+
+            if ((e.KeyChar == '.') && ((sender as System.Windows.Forms.TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
 
         private void listAbogado_SelectedIndexChanged(object sender, EventArgs e)

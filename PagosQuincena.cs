@@ -1,4 +1,5 @@
 ﻿using ClosedXML.Excel;
+using Modulos.Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,8 +14,8 @@ namespace Modulos
 {
     public partial class PagosQuincena : Form
     {
-        int[] oficiales = { 164, 168, 148, 171, 173, 165, 169, 155, 170, 161, 110, 174, 30, 163, 166, 152, 87, 32, 172, 151, 29, 112, 175, 176,
-         187, 188, 178, 182, 179, 180, 183, 181, 184, 186, 185, 190, 193, 194, 195, 196, 197, 198, 192};
+        List<(int, String)> oficiales;
+
         public PagosQuincena()
         {
             InitializeComponent();
@@ -49,8 +50,6 @@ namespace Modulos
             dtpQuincena.CustomFormat = "dd/MM/yyyy";
             dtpQuincena.Value = qncAct;
 
-            cbOficiales.SelectedIndex = 0;
-
             DataTable dtPagos = new DataTable();
             dtPagos.Columns.Add("Contrato");
             dtPagos.Columns.Add("Socio");
@@ -67,12 +66,34 @@ namespace Modulos
 
             adgvPagos.Columns[2].SortMode = DataGridViewColumnSortMode.NotSortable;
             adgvPagos.Columns[2].Width = 70;
+
+            obtenerOficiales();
+            cbOficiales.SelectedIndex = 0;
+        }
+
+        private void obtenerOficiales()
+        {
+            oficiales = new List<(int, string)>();
+            MorosidadCartera_Controller mcc = new MorosidadCartera_Controller();
+            oficiales = mcc.obtenerOficiales();
+
+            cbOficiales.Items.Clear();
+
+            if (oficiales.Count != 0)
+            {
+                oficiales.ForEach(oficiales => cbOficiales.Items.Add(oficiales.Item2));
+
+            }
+            else
+            {
+                cbOficiales.Items.Add("Sin datos.");
+            }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             Clases.PagosQuincena_Controller pqc = new Clases.PagosQuincena_Controller();
-            adgvPagos.DataSource = pqc.buscar(dtpQuincena.Value, (cbOficiales.SelectedIndex < 0) ? 0 : oficiales[cbOficiales.SelectedIndex]);
+            adgvPagos.DataSource = pqc.buscar(dtpQuincena.Value, (cbOficiales.SelectedIndex < 0) ? 0 : oficiales[cbOficiales.SelectedIndex].Item1);
             lblQuincena.Text = "Pagos a la quincena: " + dtpQuincena.Value.Day.ToString("00") + "/" + dtpQuincena.Value.Month.ToString("00") + "/" + dtpQuincena.Value.Year;
         }
 

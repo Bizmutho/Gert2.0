@@ -1,5 +1,7 @@
 ﻿using ClosedXML.Excel;
+using Modulos.Clases;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,17 +15,13 @@ namespace Modulos
 {
     public partial class Morosidad_Cartera : Form
     {
-        int[] oficiales = { 164, 168, 148, 171, 173, 165, 169, 155, 170, 161, 110, 174, 30, 163, 166, 152, 87, 32, 172, 151, 150, 29, 112, 147, 146, 160, 145, 175,
-        187, 188, 178, 182, 179, 180, 183, 181, 184, 186, 185, 176, 190, 193, 194, 195, 196, 197, 198, 192};
+        List<(int, String)> oficiales;
 
         public Morosidad_Cartera()
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
 
-            cbOficiales.SelectedIndex = 0;
-
-             
             DataTable dtm = new DataTable();
             dtm.Columns.Add("SOCIO");
             dtm.Columns.Add("CREDITO");
@@ -62,12 +60,35 @@ namespace Modulos
             adgvMorosos.Columns[6].SortMode = DataGridViewColumnSortMode.NotSortable;
             adgvMorosos.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
 
+            obtenerOficiales();
+            cbOficiales.SelectedIndex = 0;
+        }
+
+        private void obtenerOficiales()
+        {
+            oficiales = new List<(int, string)>();
+            MorosidadCartera_Controller mcc = new MorosidadCartera_Controller();
+            oficiales = mcc.obtenerOficiales();
+
+            cbOficiales.Items.Clear();
+
+            if (oficiales.Count != 0)
+            {
+                oficiales.ForEach(oficiales => cbOficiales.Items.Add(oficiales.Item2));
+
+            } else
+            {
+                cbOficiales.Items.Add("Sin datos.");
+            }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            Clases.MorosidadCartera_Controller mcc = new Clases.MorosidadCartera_Controller();
-            adgvMorosos.DataSource = mcc.consulta(oficiales[cbOficiales.SelectedIndex]);
+            if (oficiales.Count != 0)
+            {
+                Clases.MorosidadCartera_Controller mcc = new Clases.MorosidadCartera_Controller();
+                adgvMorosos.DataSource = mcc.consulta(oficiales[cbOficiales.SelectedIndex].Item1);
+            }
         }
 
         private void btnExportar_Click(object sender, EventArgs e)

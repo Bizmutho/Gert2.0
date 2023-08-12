@@ -116,12 +116,13 @@
             // button7
             // 
             this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
+            this.button7.Enabled = false;
             this.button7.FlatAppearance.BorderSize = 0;
             this.button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(97)))), ((int)(((byte)(85)))));
             this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(97)))), ((int)(((byte)(85)))));
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button7.Location = new System.Drawing.Point(947, 443);
             this.button7.Name = "button7";
@@ -134,12 +135,13 @@
             // button6
             // 
             this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
+            this.button6.Enabled = false;
             this.button6.FlatAppearance.BorderSize = 0;
             this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(97)))), ((int)(((byte)(85)))));
             this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(97)))), ((int)(((byte)(85)))));
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button6.Location = new System.Drawing.Point(947, 373);
             this.button6.Name = "button6";
@@ -152,12 +154,13 @@
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
+            this.button5.Enabled = false;
             this.button5.FlatAppearance.BorderSize = 0;
             this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(97)))), ((int)(((byte)(85)))));
             this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(97)))), ((int)(((byte)(85)))));
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button5.Location = new System.Drawing.Point(947, 307);
             this.button5.Name = "button5";
@@ -170,12 +173,13 @@
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
+            this.button4.Enabled = false;
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(97)))), ((int)(((byte)(85)))));
             this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(97)))), ((int)(((byte)(85)))));
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button4.Location = new System.Drawing.Point(947, 240);
             this.button4.Name = "button4";
@@ -188,12 +192,13 @@
             // buttonEliminar
             // 
             this.buttonEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
+            this.buttonEliminar.Enabled = false;
             this.buttonEliminar.FlatAppearance.BorderSize = 0;
             this.buttonEliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(97)))), ((int)(((byte)(85)))));
             this.buttonEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(97)))), ((int)(((byte)(85)))));
             this.buttonEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEliminar.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.buttonEliminar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.buttonEliminar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.buttonEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonEliminar.Location = new System.Drawing.Point(947, 171);
             this.buttonEliminar.Name = "buttonEliminar";
@@ -207,12 +212,13 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
+            this.button2.Enabled = false;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(97)))), ((int)(((byte)(85)))));
             this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(97)))), ((int)(((byte)(85)))));
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.Location = new System.Drawing.Point(947, 107);
             this.button2.Name = "button2";
@@ -226,12 +232,13 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
+            this.button1.Enabled = false;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(97)))), ((int)(((byte)(85)))));
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(97)))), ((int)(((byte)(85)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.Location = new System.Drawing.Point(947, 42);
             this.button1.Name = "button1";

@@ -52,28 +52,6 @@
             // 
             this.cbOficiales.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbOficiales.FormattingEnabled = true;
-            this.cbOficiales.Items.AddRange(new object[] {
-            "ABASOLO",
-            "ALDAMA",
-            "ALDAMA MORA",
-            "BARRETAL",
-            "CINTHIA",
-            "GLADYS",
-            "HERMELINDA",
-            "JAVIER",
-            "JUAN",
-            "KAREN",
-            "MAGDA",
-            "MAGUE",
-            "MARTINA R.",
-            "MARTINA S.",
-            "NORMA",
-            "PADILLA",
-            "PERSONAL",
-            "PROPIOS",
-            "VALENTINA",
-            "VICENTE",
-            "YARITHZA"});
             this.cbOficiales.Location = new System.Drawing.Point(73, 12);
             this.cbOficiales.Name = "cbOficiales";
             this.cbOficiales.Size = new System.Drawing.Size(121, 27);

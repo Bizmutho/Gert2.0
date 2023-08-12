@@ -17,11 +17,7 @@ namespace Modulos.Clases
     public class SociosCarteras_controller
     {
         Conexion Con;
-        public int[] idOficial = {29, 30, 32, 87, 108, 110, 112, 144, 145, 146, 147, 148, 150, 151, 152, 155, 157, 160, 161, 163, 164, 165, 166,
-           167, 168, 169, 170, 171, 172, 173,174,175,176,177,178,179,180,181,182,183,184,185,186,187, 188, 190, 191, 193, 194, 195, 196, 197, 198, 192};
-
-
-
+        
         public SociosCarteras_controller()
         {
             Con = new Conexion();
@@ -37,7 +33,7 @@ namespace Modulos.Clases
             Con.OpenConnection();
             string query1 = "";
 
-            query1 = queryConsulta(idOficial[cb]);
+            query1 = queryConsulta(cb);
             MySqlCommand query = new MySqlCommand(query1, Con.GetConnection());
             DataTable dt2 = new DataTable();
             MySqlDataAdapter da2 = new MySqlDataAdapter();

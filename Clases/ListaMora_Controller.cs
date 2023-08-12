@@ -10,7 +10,6 @@ namespace Modulos.Clases
 {
     public class ListaMora_Controller
     {
-        public int[] idOficial = { 164, 148, 171, 160, 165, 155, 161, 110, 30, 163, 152, 145, 87, 32, 144, 151, 150, 108, 29, 112, 190};
         Conexion conCreditos, conSaldo;
         DateTime qncAct;
         public ListaMora_Controller()
@@ -72,7 +71,7 @@ namespace Modulos.Clases
                 MySqlDataReader resulCreditos, resulSaldo;
 
 
-                sqlCreditos = queryCreditos(idOficial[oficial]);
+                sqlCreditos = queryCreditos(oficial);
 
                 cmdCreditos = new MySqlCommand(sqlCreditos, conCreditos.GetConnection());
                 cmdCreditos.CommandTimeout = 1000000;

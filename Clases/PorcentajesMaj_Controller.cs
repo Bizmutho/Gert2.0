@@ -11,7 +11,7 @@ namespace Modulos.Clases
     public class PorcentajesMaj_Controller
     {
         public int[] idOficial = { 30, 152, 87, 32, 145, 29, 112, 161, 110, 165, 163, 151, 150, 148, 108, 164, 174, 173, 175, 176,
-        187, 188, 178, 182, 179, 180, 183, 181, 184, 186, 185, 190, 193, 194, 195, 196, 197, 198};
+        187, 188, 178, 182, 179, 180, 183, 181, 184, 186, 185, 190, 193, 194, 195, 196, 197, 198, 192};
         Conexion con;
         public PorcentajesMaj_Controller()
         {
@@ -29,13 +29,15 @@ namespace Modulos.Clases
             datosT.Columns.Add("PAGADO");
             datosT.Columns.Add("DIFERENCIA");
             datosT.Columns.Add("PORCENTAJE");
-            DateTime q1, q2, q3;
 
-            q1 = calcularQuincenaAnterior(QncAct);
-            q2 = calcularQuincenaAnterior(q1);
-            q3 = calcularQuincenaAnterior(q2);
+            DateTime[] quincenas = new DateTime[36];
 
-            DateTime[] quincenas = { q1, q2, q3 };
+            quincenas[0] = calcularQuincenaAnterior(QncAct);
+
+            for (int i = 1; i < quincenas.Length; i++)
+            {
+                quincenas[i] = calcularQuincenaAnterior(quincenas[i - 1]);
+            }
 
             if (oficial != 0)
             {
@@ -87,12 +89,12 @@ namespace Modulos.Clases
         {
             DateTime quincena;
             int cli = 0;
-            int[] cliPorQnc = new int[3];
+            int[] cliPorQnc = new int[quincenas.Length];
             float pago, pagado;
-            float[] pagoPorQnc = new float[3];
-            float[] pagadoPorQnc = new float[3];
+            float[] pagoPorQnc = new float[quincenas.Length];
+            float[] pagadoPorQnc = new float[quincenas.Length];
             float totalpago = 0, totalpagado = 0;
-            float[] porPorQnc = new float[3];
+            float[] porPorQnc = new float[quincenas.Length];
 
             for (int i = 0; i < quincenas.Length; i++)
             {
@@ -192,6 +194,7 @@ namespace Modulos.Clases
                 case 181: return "G. FARIAS MORA";
                 case 184: return "VICTORIA GERT";
                 case 186: return "VICTORIA REGULARES";
+                case 192: return "LUIS ENRIQUE MENA";
                 case 185: return "VICTORIA MORA";
                 case 193: return "MONSERRAT";
                 case 194: return "MONSERRAT REGULARES";

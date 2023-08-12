@@ -71,7 +71,7 @@ namespace Modulos.Clases
 
         public String query(DateTime qnc, int Oficial)
         {
-            return " " +
+            String query =  " " +
                 "select " +
                 "   prestamosind.id as Credito, " +
                 "   concat(prestamosind.Nombre, ' ', prestamosind.Paterno, ' ', prestamosind.Materno) as Socio, " +
@@ -88,6 +88,8 @@ namespace Modulos.Clases
                 "and OficialId = "+Oficial+" " +
                 "group by prestamosind.Id " +
                 "order by prestamosind.Id ASC";
+            Console.WriteLine(query);
+            return query;
         }
     }
 }

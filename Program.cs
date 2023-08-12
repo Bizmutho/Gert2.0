@@ -12,12 +12,13 @@ namespace Modulos
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-           var ini = new Login();
+            var ini = new Login();
 
             //var ini = new ActualizarOficial();
 
             //var ini = new Captura();
 
+            //var ini = new Inicio();
 
             ini.Show();
 

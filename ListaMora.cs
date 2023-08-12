@@ -14,10 +14,11 @@ namespace Moratorios
 {
     public partial class ListaMora : Form
     {
+        List<(int, String)> oficiales;
+
         public ListaMora()
         {
             InitializeComponent();
-            cbOficiales.SelectedIndex = 0;
 
             StartPosition = FormStartPosition.CenterScreen;
 
@@ -55,12 +56,34 @@ namespace Moratorios
 
             dgvListaMora.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvListaMora.Refresh();
+
+            obtenerOficiales();
+            cbOficiales.SelectedIndex = 0;
+        }
+
+        private void obtenerOficiales()
+        {
+            oficiales = new List<(int, string)>();
+            MorosidadCartera_Controller mcc = new MorosidadCartera_Controller();
+            oficiales = mcc.obtenerOficiales();
+
+            cbOficiales.Items.Clear();
+
+            if (oficiales.Count != 0)
+            {
+                oficiales.ForEach(oficiales => cbOficiales.Items.Add(oficiales.Item2));
+
+            }
+            else
+            {
+                cbOficiales.Items.Add("Sin datos.");
+            }
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
             ListaMora_Controller lm = new ListaMora_Controller();
-            lm.consulta(cbOficiales.SelectedIndex, dgvListaMora);
+            lm.consulta(oficiales[cbOficiales.SelectedIndex].Item1, dgvListaMora);
             dgvListaMora.RowHeadersVisible = false;
             foreach (DataGridViewColumn column in dgvListaMora.Columns)
             {
@@ -235,8 +258,7 @@ namespace Moratorios
 
         private void ListaMora_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.ExitThread();
-            Application.Exit();
+            this.Dispose();
         }
 
         private void cbOficiales_SelectedIndexChanged(object sender, EventArgs e)

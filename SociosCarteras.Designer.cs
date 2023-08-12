@@ -45,61 +45,6 @@
             // listaOficial
             // 
             this.listaOficial.FormattingEnabled = true;
-            this.listaOficial.Items.AddRange(new object[] {
-            "VALENTINA PALOMO ARAUJO",
-            "JUAN ORDOÑEZ LUMBRERAS",
-            "MARTINA SANCHEZ RAMIREZ",
-            "MARTINA RAMIREZ LAGUNA",
-            "OFICINA CORPORATIVO PROPIOS",
-            "JAVIER ALEJANDRO GOMEZ TURRUBIATES",
-            "VICENTE BALDAZO MENDOZA",
-            "NORMA PATRICIA MARTINEZ AGUILAR",
-            "SILVIA MARGARITA XIMENEZ PEREZ",
-            "AMALIA IBETH MARTINEZ TREJO",
-            "LUDIVINA VAZQUEZ TURRUBIATES",
-            "OFICINA ALDAMA GERT",
-            "OFICINA PRESTAMOS PERSONAL",
-            "OFICINA PADILLA GERT",
-            "MAGDA CATALINA SILVA MARTINEZ",
-            "GLADYS YUDITH GALLEGOS HERNADEZ",
-            "LUIS ALEJANDRO HIGUERA  RODRIGUEZ",
-            "OFICINA BARRETAL GERT",
-            "HERMELINDA CAMACHO  MIRELES",
-            "KAREN VANESA ZUÑIGA RAMIREZ",
-            "OFICINA  ABASOLO GERT",
-            "CINTHIA GUADALUPE SEGOVIA GONZALEZ",
-            "KAREN MORA .",
-            "CINTHIA MORA .",
-            "ABASOLO MORA .",
-            "CORPORATIVO PROPIOS MORA",
-            "GLADYS MORA .",
-            "ALDAMA MORA .",
-            "NORMA MORA .",
-            "BRANDON ALEJANDRO GALLEGOS RODRIGUEZ",
-            "JORGE ALFONSO RUIZ OSORIO",
-            "JESUS ARMANDO DUQUE LOA",
-            "NANCY ANALY CASTRO VARGAS",
-            "JUAN DANIEL HERNANDEZ MALDONADO",
-            "OFICINA  LLERA GERT",
-            "OFICINA LLERA MORA",
-            "OFICINA GOMEZ FARIAS GERT",
-            "OFICINA GOMEZ FARIAS MORA",
-            "OFICINA LLERA REGULARES",
-            "OFICINA GOMEZ FARIAS REGULARES",
-            "OFICINA VICTORIA GERT",
-            "OFICINA VICTORIA MORA",
-            "OFICINA VICTORIA REGULARES",
-            "CINTHIA MORA (BRANDON)",
-            "CINTHIA MORA (JESUS)",
-            "YARITHZA ",
-            "YARITHZA REGULARES",
-            "MONSERRAT",
-            "MONSERRAT REGULARES",
-            "MONSERRAT MORA",
-            "JUAN CARLOS",
-            "JUAN CARLOS REGULARES",
-            "JUAN CARLOS MORA",
-            "LUIS ENRIQUE MENA"});
             this.listaOficial.Location = new System.Drawing.Point(93, 39);
             this.listaOficial.Name = "listaOficial";
             this.listaOficial.Size = new System.Drawing.Size(258, 23);
@@ -195,7 +140,7 @@
             this.btnProceso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
             this.btnProceso.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnProceso.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnProceso.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnProceso.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnProceso.Location = new System.Drawing.Point(913, 38);
             this.btnProceso.Name = "btnProceso";
             this.btnProceso.Size = new System.Drawing.Size(155, 23);

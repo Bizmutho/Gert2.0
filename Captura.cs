@@ -538,57 +538,65 @@ namespace Modulos
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            Captura_Controller cc = new Captura_Controller();
-
-            var confirmResult = MessageBox.Show("¿Cancelar deposito con folio: " + adgvDepositos.Rows[adgvDepositos.CurrentCell.RowIndex].Cells[1].Value.ToString() + "?",
-                                     "¿Cancelar deposito?",
-                                     MessageBoxButtons.YesNo);
-            if (confirmResult == DialogResult.Yes)
+            Autorizar aut = new Autorizar();
+            var result = aut.ShowDialog();
+            if (result == DialogResult.OK)
             {
-                StorageClass.cancelar = idsDepositos[adgvDepositos.CurrentCell.RowIndex];
-                using (dialogCarga dc = new dialogCarga("Cancelando deposito...", cc.cancelarDeposito))
+                Captura_Controller cc = new Captura_Controller();
+
+                var confirmResult = MessageBox.Show("¿Cancelar deposito con folio: " + adgvDepositos.Rows[adgvDepositos.CurrentCell.RowIndex].Cells[1].Value.ToString() + "?",
+                                         "¿Cancelar deposito?",
+                                         MessageBoxButtons.YesNo);
+                if (confirmResult == DialogResult.Yes)
                 {
-                    dc.ShowDialog(this);
-                }
-
-                if (StorageClass.validacion)
-                {
-                    MessageBox.Show("Deposito cancelado exitosamente", "Cancelar deposito", MessageBoxButtons.OK);
-                }
-
-                adgvQuincenas.DataSource = cc.quincenas(StorageClass.getIdC(), desc);
-                int rowView = 0;
-                for (int i = adgvQuincenas.Rows.Count - 1; i >= 0; i--)
-                {
-
-                    adgvQuincenas.Rows[i].Cells[0].Value = desc[i].Item1;
-                    adgvQuincenas.Rows[i].Cells[0].ReadOnly = desc[i].Item1;
-                    adgvQuincenas.Rows[i].Cells[1].ReadOnly = true;
-                    adgvQuincenas.Rows[i].Cells[2].ReadOnly = true;
-                    adgvQuincenas.Rows[i].Cells[3].ReadOnly = true;
-                    adgvQuincenas.Rows[i].Cells[4].ReadOnly = true;
-                    adgvQuincenas.Rows[i].Cells[5].ReadOnly = true;
-
-                    if (!adgvQuincenas.Rows[i].Cells[5].Value.ToString().Equals("$0") && rowView == 0)
+                    StorageClass.cancelar = idsDepositos[adgvDepositos.CurrentCell.RowIndex];
+                    using (dialogCarga dc = new dialogCarga("Cancelando deposito...", cc.cancelarDeposito))
                     {
-                        rowView = i;
+                        dc.ShowDialog(this);
                     }
-                    adgvQuincenas.Rows[i].Cells[6].ReadOnly = true;
+
+                    if (StorageClass.validacion)
+                    {
+                        MessageBox.Show("Deposito cancelado exitosamente", "Cancelar deposito", MessageBoxButtons.OK);
+                    }
+
+                    adgvQuincenas.DataSource = cc.quincenas(StorageClass.getIdC(), desc);
+                    int rowView = 0;
+                    for (int i = adgvQuincenas.Rows.Count - 1; i >= 0; i--)
+                    {
+
+                        adgvQuincenas.Rows[i].Cells[0].Value = desc[i].Item1;
+                        adgvQuincenas.Rows[i].Cells[0].ReadOnly = desc[i].Item1;
+                        adgvQuincenas.Rows[i].Cells[1].ReadOnly = true;
+                        adgvQuincenas.Rows[i].Cells[2].ReadOnly = true;
+                        adgvQuincenas.Rows[i].Cells[3].ReadOnly = true;
+                        adgvQuincenas.Rows[i].Cells[4].ReadOnly = true;
+                        adgvQuincenas.Rows[i].Cells[5].ReadOnly = true;
+
+                        if (!adgvQuincenas.Rows[i].Cells[5].Value.ToString().Equals("$0") && rowView == 0)
+                        {
+                            rowView = i;
+                        }
+                        adgvQuincenas.Rows[i].Cells[6].ReadOnly = true;
+                    }
+
+                    adgvQuincenas.FirstDisplayedScrollingRowIndex = rowView;
+
+                    adgvDepositos.DataSource = cc.depositos(StorageClass.getIdC(), idsDepositos);
+
+                    if (adgvDepositos.RowCount > 1)
+                    {
+                        adgvDepositos.FirstDisplayedScrollingRowIndex = adgvDepositos.RowCount - 1;
+                    }
+
+                    adgvQuincenas.Refresh();
+                    adgvDepositos.Refresh();
+                    Informacion();
+
                 }
-
-                adgvQuincenas.FirstDisplayedScrollingRowIndex = rowView;
-
-                adgvDepositos.DataSource = cc.depositos(StorageClass.getIdC(), idsDepositos);
-
-                if (adgvDepositos.RowCount > 1)
-                {
-                    adgvDepositos.FirstDisplayedScrollingRowIndex = adgvDepositos.RowCount - 1;
-                }
-
-                adgvQuincenas.Refresh();
-                adgvDepositos.Refresh();
-                Informacion();
-
+            } else if(result != DialogResult.Cancel)
+            {
+                MessageBox.Show("Código incorrecto.", "Autorización.");
             }
         }
 

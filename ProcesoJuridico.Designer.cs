@@ -165,15 +165,19 @@
             this.listStatus.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listStatus.FormattingEnabled = true;
             this.listStatus.Items.AddRange(new object[] {
-            "EMPLAZAMIENTO",
-            "PARA CATEO",
-            "CONVENIO",
-            "CAMBIO DE DOMICILIO",
-            "NO SE ENCONTRÓ",
-            "SENTENCIA",
-            "DEMANDA EN PROCESO",
-            "LIQUIDADA",
-            "EXTRAJUDICIAL"});
+            "1.- DEMANDA EN PROCESO",
+            "2.- VERIFICACION DE DOMICILIO",
+            "3.- INGRESO DEMANDA AL JUZGADO",
+            "4.- EMPLAZAMIENTO",
+            "5.- SENTENCIA",
+            "6.- REQUERIMIENTO VOLUNTARIO",
+            "7.- EJECUCION FORZOSA 1",
+            "8.- EJECUCION FORZOSA 2",
+            "9.- CONVENIO",
+            "10.- EXTRAJUDICIAL",
+            "11.- LIQUIDADA",
+            "12.- DEVOLUCION DEL EXPEDIENTE",
+            "13.- OTRO"});
             this.listStatus.Location = new System.Drawing.Point(177, 249);
             this.listStatus.Name = "listStatus";
             this.listStatus.Size = new System.Drawing.Size(200, 25);

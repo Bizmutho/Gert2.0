@@ -282,5 +282,40 @@ namespace Modulos.Clases
             return ReporteInversion;
         }
 
+        public List<(int, String)> obtenerOficiales()
+        {
+            List<(int, String)> oficiales = new List<(int, String)>();
+            Conexion con = new Conexion();
+
+            try
+            {
+                String query = "select id, nombre from oficialesactivos order by ref";
+
+                con.crearConexion();
+                con.OpenConnection();
+
+                MySqlCommand cmd;
+                MySqlDataReader result;
+
+                cmd = new MySqlCommand(query, con.GetConnection());
+                cmd.CommandTimeout = 1000000;
+                result = cmd.ExecuteReader();
+
+                if (result.HasRows)
+                {
+                    while (result.Read())
+                    {
+                        oficiales.Add((result.GetInt32(0), result.GetString(1)));
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: " + e.Message);
+            }
+
+            return oficiales;
+        }
     }
 }
